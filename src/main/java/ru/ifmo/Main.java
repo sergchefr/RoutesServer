@@ -11,19 +11,27 @@ import java.nio.channels.ServerSocketChannel;
 public class Main {
     public static void main(String[] args) {
         ConnectionManager connectionManager = new ConnectionManager(111);
-        connectionManager.AcceptNewConnections();
         while (true) {
+            //connectionManager.AcceptNewConnections();
             connectionManager.checkNewCommands();
         }
-
+//        ConnectionManager connectionManager = new ConnectionManager();
+//        try {
+//            connectionManager.nio_non_blockable_selector_server();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
 
 
 //        try {
+//            ServerSocket server = new ServerSocket(111);
 //            try  {
 //
 //
 //                //   объявить о своем запуске
-//                //socket  = server.accept(); // accept() будет ждать пока
+//                Socket socket;
+//
+//                socket  = server.accept(); // accept() будет ждать пока
 //                //кто-нибудь не захочет подключиться
 //                try { // установив связь и воссоздав сокет для общения с клиентом можно перейти
 //                    // к созданию потоков ввода/вывода.
