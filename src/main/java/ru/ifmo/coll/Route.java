@@ -1,4 +1,4 @@
-package ru.ifmo.server.coll;
+package ru.ifmo.coll;
 
 import java.io.IOException;
 import java.util.Date;
@@ -13,10 +13,10 @@ public class Route implements Comparable{
     private final java.util.Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private final Location from; //Поле может быть null
     private final Location to; //Поле не может быть null
-    private final Float distance; //Поле не может быть null, Значение поля должно быть больше 1
+    private final double distance; //Поле не может быть null, Значение поля должно быть больше 1
 
 
-    public Route(Long id, String name, Date creationDate, Location from, Location to, Float distance)throws IOException {
+    public Route(Long id, String name, Date creationDate, Location from, Location to, double distance)throws IOException {
         if(id ==null)throw new IOException("id can`t be null");
         if(Objects.equals(name, ""))throw new IOException("name can`t be null or empty");
         if(from ==null)throw new IOException("from location can`t be null");
@@ -35,7 +35,7 @@ public class Route implements Comparable{
         this.distance = distance;
     }
 
-    public Route(String name,Location from, Location to, Float distance) throws IOException{
+    public Route(String name,Location from, Location to, double distance) throws IOException{
         if(Objects.equals(name, ""))throw new IOException("name can`t be null or empty");
         if(from ==null)throw new IOException("from location can`t be null");
         if(to ==null)throw new IOException("destination location can`t be null");
@@ -90,7 +90,7 @@ public class Route implements Comparable{
         return creationDate;
     }
 
-    public Float getDistance() {
+    public double getDistance() {
         return distance;
     }
 

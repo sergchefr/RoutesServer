@@ -1,4 +1,4 @@
-package ru.ifmo.server.coll;
+package ru.ifmo.coll;
 /** Координаты чего-то. Зачем они? Не знаю. Пусть так и останется*/
 public class Coordinates {
     private final Long x; //Поле не может быть null

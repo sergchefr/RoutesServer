@@ -1,4 +1,7 @@
-package ru.ifmo.server.coll;
+package ru.ifmo;
+
+import ru.ifmo.coll.Route;
+
 /** интерфейс с командами управления серверной частью*/
 public interface Commands {
     String save(String filename);

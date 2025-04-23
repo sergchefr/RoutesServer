@@ -1,4 +1,4 @@
-package ru.ifmo.server.history;
+package ru.ifmo.history;
 
 import java.util.ArrayDeque;
 

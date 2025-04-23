@@ -1,4 +1,4 @@
-package ru.ifmo.server.coll;
+package ru.ifmo.coll;
 
 import java.io.IOException;
 import java.util.*;
@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * Класс, управляющий коллекцией
  */
-public class TreeSetHandler {
+public class TreeSetHandler{
     private final TreeSet<Route> coll;
     private final Date initDate;
     public TreeSetHandler() {
@@ -29,7 +29,6 @@ public class TreeSetHandler {
         }
         return "element added\n";
     }
-
     public String info(){
         return "initialisation date: "+initDate+"\n"+"size: "+ coll.size()+"\n"+ "collection class: " + coll.getClass()+"\n";
     }
@@ -69,7 +68,6 @@ public class TreeSetHandler {
         }
         return "element with this id doesn`t exist\n";
     }
-
     public Route getById(long id){
         for (Route o : coll) {
             if (o.getId() == id) {
@@ -83,13 +81,7 @@ public class TreeSetHandler {
         return "collection cleared\n";
     }
     public String addIfMax(Route route){
-        //        try{
-//            route = (Route) obj;
-//        }catch(ClassCastException e){
-//            return "collection handles only routes";
-//        }
-
-        float maxd=0;
+        double maxd=0;
         for (Route o : coll) {
             if(o.getDistance()>maxd) maxd= o.getDistance();
         }
@@ -106,7 +98,7 @@ public class TreeSetHandler {
 //            return "collection handles only routes";
 //        }
 
-        float mind=Float.POSITIVE_INFINITY;
+        double mind=Float.POSITIVE_INFINITY;
         for (Route o : coll) {
             if(o.getDistance()<mind) mind= o.getDistance();
         }
@@ -138,19 +130,18 @@ public class TreeSetHandler {
 
     }
     public String printAscDist(){
-        float[] dist=new float[coll.size()];
+        double[] dist=new double[coll.size()];
         int i =0;
         for (Route o : coll) {
             dist[i++]= o.getDistance();
         }
         Arrays.sort(dist);
         StringBuilder s= new StringBuilder();
-        for (float v : dist) {
+        for (double v : dist) {
             s.append(v).append(", ");
         }
         return s+"\n";
     }
-
     public Route[] getAllRoutes(){
        return coll.toArray(new Route[0]);
     }

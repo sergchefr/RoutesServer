@@ -1,16 +1,16 @@
-package ru.ifmo.server.coll;
+package ru.ifmo.coll;
 
 import java.util.Objects;
 
 /** Класс, характеризующий некую локацию. используется в {@link Route}*/
 public class Location {
-    private final Integer x; //Поле не может быть null
-    private final Integer y; //Поле не может быть null
-    private final Float z; //Поле не может быть null
+    private final int x; //Поле не может быть null
+    private final int y; //Поле не может быть null
+    private final int z; //Поле не может быть null
     private final String name; //Строка не может быть пустой, Поле не может быть null
 
-    public Location(Integer x, Integer y, Float z, String name) {
-        if(x==null|y==null|z==null| Objects.equals(name,"")) throw new NumberFormatException();
+    public Location(int x, int y, int z, String name) {
+        if(Objects.equals(name,"")) throw new NumberFormatException();
         this.x = x;
         this.y = y;
         this.z = z;
@@ -28,15 +28,15 @@ public class Location {
                 '}';
     }
 
-    public Integer getX() {
+    public int getX() {
         return x;
     }
 
-    public Integer getY() {
+    public int getY() {
         return y;
     }
 
-    public Float getZ() {
+    public int getZ() {
         return z;
     }
 
