@@ -1,5 +1,6 @@
 package ru.ifmo;
 
+import ru.ifmo.serverCommands.*;
 import ru.ifmo.transfer.Request;
 
 import java.io.*;
@@ -10,58 +11,29 @@ import java.nio.channels.ServerSocketChannel;
 
 public class Main {
     public static void main(String[] args) {
-        ConnectionManager connectionManager = new ConnectionManager(111);
+        ServerManager serverManager = new ServerManager("C:/Users/sergei/IdeaProjects/RoutesClient/src/main/java/ru/ifmo/config.xml");
+        ConnectionManager connectionManager = new ConnectionManager(serverManager, 1111);
+        serverManager.addCommand(new AddCommand(serverManager));
+        serverManager.addCommand(new ClearCommand(serverManager));
+        serverManager.addCommand(new GetConfigCommand(serverManager));
+        serverManager.addCommand(new ShowCommand(serverManager));
+        serverManager.addCommand(new AddIfMaxCommand(serverManager));
+        serverManager.addCommand(new AddIfMinCommand(serverManager));
+        serverManager.addCommand(new AvgDistanceCommand(serverManager));
+        serverManager.addCommand(new InfoCommand(serverManager));
+        serverManager.addCommand(new PrintAscCommand(serverManager));
+        serverManager.addCommand(new PrintAscDistCommand(serverManager));
+        serverManager.addCommand(new ShowHistoryCommand(serverManager));
+        serverManager.addCommand(new UpdateCommand(serverManager));
+        Console console = new Console();
+        //System.out.println(serverManager.getConfig());
         while (true) {
-            //connectionManager.AcceptNewConnections();
             connectionManager.checkNewCommands();
+            var a = console.checkInput();
+            if(a!=null){
+                if(a.equals("exit")) System.exit(0);
+            }
         }
-//        ConnectionManager connectionManager = new ConnectionManager();
-//        try {
-//            connectionManager.nio_non_blockable_selector_server();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
 
-
-//        try {
-//            ServerSocket server = new ServerSocket(111);
-//            try  {
-//
-//
-//                //   объявить о своем запуске
-//                Socket socket;
-//
-//                socket  = server.accept(); // accept() будет ждать пока
-//                //кто-нибудь не захочет подключиться
-//                try { // установив связь и воссоздав сокет для общения с клиентом можно перейти
-//                    // к созданию потоков ввода/вывода.
-//                    // теперь мы можем принимать сообщения
-//                    var in = socket.getInputStream();
-//                    var out = socket.getOutputStream();
-//
-//                    ObjectOutputStream serialiser = new ObjectOutputStream(out);
-//                    ObjectInputStream deserialiser = new ObjectInputStream(in);
-//
-//                    String word = "ошибка передачи команды"; // ждём пока клиент что-нибудь нам напишет
-//                    try {
-//                        word = ((Request) deserialiser.readObject()).getCommand();
-//                    } catch (ClassNotFoundException e) {
-//                        throw new RuntimeException(e);
-//                    }
-//                    System.out.println(word);
-////                    // не долго думая отвечает клиенту
-////                    out.write("Привет, это Сервер! Подтверждаю, вы написали : " + word + "\n");
-////                    out.flush(); // выталкиваем все из буфера
-//
-//                } finally { // в любом случае сокет будет закрыт
-//                    socket.close();
-//                }
-//            } finally {
-//                System.out.println("Сервер закрыт!");
-//                server.close();
-//            }
-//        } catch (IOException e) {
-//            System.err.println(e);
-//        }
     }
 }

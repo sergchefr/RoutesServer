@@ -4,12 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d03ec477-5e5e-44d6-bd31-624d6d728fb5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="d03ec477-5e5e-44d6-bd31-624d6d728fb5" name="Changes" comment="first">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/Console.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/AddIfMaxCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/AddIfMinCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/AvgDistanceCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/GetConfigCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/InfoCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/PrintAscCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/PrintAscDistCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/ShowCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/ShowHistoryCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/UpdateCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/Commands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ConnectionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Route.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/TreeSetHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/TreeSetHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/AddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/transfer/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/transfer/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/xmlmanager/XMLreader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/xmlmanager/XMLreader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,16 +42,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "sergchefr"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;sergchefr&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/sergchefr/RoutesServer",
-    "accountId": "e8130771-e36a-4441-b6f4-a9bee59c0630"
+    "accountId": "dca9bb9c-8723-4241-8072-25cf83aeb18c"
   }
 }]]></component>
   <component name="ProjectColorInfo">{
@@ -54,7 +70,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Сергей/IdeaProjects/RoutesServer"
+    "last_opened_file_path": "C:/Users/sergei/Desktop/прога/lab6/config.xml"
   }
 }]]></component>
   <component name="RunManager">

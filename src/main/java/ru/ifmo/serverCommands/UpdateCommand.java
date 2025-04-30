@@ -4,32 +4,38 @@ import ru.ifmo.Commands;
 import ru.ifmo.coll.Location;
 import ru.ifmo.coll.Route;
 
-import javax.lang.model.element.Name;
 import java.io.IOException;
 
-public class AddCommand implements Icommand{
-    private Commands executor;
-    private String Commandname;
+public class UpdateCommand implements Icommand {
+    Commands executor;
+    Integer id;
+    Route route;
 
-
-
-
-    public AddCommand(Commands executor) {
+    public UpdateCommand(Commands executor) {
         this.executor = executor;
     }
 
     @Override
     public String execute(String command) {
         try {
-            return executor.add(parceCommand(command));
+            id =null;
+            route=null;
+            parceCommand(command);
+            if (id == null | route == null) return "ошибка при создании объекта";
+            return executor.update(id, route);
         } catch (IOException e) {
-            return "ошибка при создании объекта: "+e;
+            return "ошибка при создании объекта: " + e;
         }
     }
 
-    private Route parceCommand(String command) throws IOException{
+    @Override
+    public String getName() {
+        return "update";
+    }
 
-        String RouteName= null;
+    private void parceCommand(String command) throws IOException {
+
+        String RouteName = null;
         String FromLocationName = null;
         Integer fromx = null;
         Integer fromy = null;
@@ -41,10 +47,10 @@ public class AddCommand implements Icommand{
         Double distance = null;
 
         String[] args = command.split(" ");
-        if(!args[0].equals("add")) throw new RuntimeException();
+        if (!args[0].equals("add")) throw new RuntimeException();
         try {
             for (String arg : args) {
-                switch (arg.split("=")[0]){
+                switch (arg.split("=")[0]) {
                     case "RouteName":
                         RouteName = arg.split("=")[1];
                         break;
@@ -75,20 +81,19 @@ public class AddCommand implements Icommand{
                     case "distance":
                         distance = Double.parseDouble(arg.split("=")[1]);
                         break;
+                    case "id":
+                        id = Integer.parseInt(arg.split("=")[1]);
+                        break;
                 }
             }
         } catch (NumberFormatException e) {
             throw new IOException("incorrect number format");
         }
         try {
-            return new Route(RouteName,new Location(fromx,fromy,fromz,FromLocationName),new Location(tox,toy,toz,ToLocationName),distance);
+            this.id = id;
+            route = new Route(RouteName, new Location(fromx, fromy, fromz, FromLocationName), new Location(tox, toy, toz, ToLocationName), distance);
         } catch (IOException e) {
             throw new IOException(e);
         }
-    }
-
-    @Override
-    public String getName() {
-        return "add";
     }
 }

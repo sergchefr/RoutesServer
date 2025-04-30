@@ -41,7 +41,7 @@ public class TreeSetHandler{
         }
         return s.toString();
     }
-    public String update(Long id, Route route){
+    public String update(int id, Route route){
         for (Route o : coll) {
             if(o.getId().equals(id)) {
                 coll.remove(o);

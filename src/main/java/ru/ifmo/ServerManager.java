@@ -7,6 +7,9 @@ import ru.ifmo.serverCommands.Icommand;
 import ru.ifmo.xmlmanager.*;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,32 +19,43 @@ import java.util.HashMap;
  */
 public class ServerManager implements Commands{
 
-    private ArrayDeque<String> comWaitList= new ArrayDeque<>();
+    private ArrayDeque<String> comWaitList;
     private HashMap<String,Icommand> commands;
     private TreeSetHandler collhandler;
     private History hst = new History();
     private ConnectionManager connectionManager;
+    private String configLocation;
 
 
 
-    public ServerManager(TreeSetHandler collhandler) {
+    public ServerManager(String configLocation) {
+        this.configLocation = configLocation;
+        collhandler= new TreeSetHandler();
         this.collhandler = collhandler;
+        comWaitList = new ArrayDeque<>();
+        commands = new HashMap<>();
     }
 
     public void addCommand(Icommand command){
         commands.put(command.getName(),command);
     }
 
-    public void execute(){
+    public String execute(){
         if(!comWaitList.isEmpty()){
             String com  = comWaitList.pollFirst();
-            commands.get(com.split(" ")[0]).execute(com);
+            return commands.get(com.split(" ")[0]).execute(com);
         }
+        return "ошибка при выполнении команды: команда не получена сервером";
+    }
+
+    public String execute(String com){
+        Icommand icommand = commands.get(com.split(" ")[0]);
+        if(icommand!=null)return icommand.execute(com);
+        return "команда с таким имменем мне найдена";
     }
 
     public void addCommandToWaitList(String com){
         comWaitList.addLast(com);
-        execute();
     }
 
     @Override
@@ -94,7 +108,7 @@ public class ServerManager implements Commands{
     }
 
     @Override
-    public String update(Long id, Route route) {
+    public String update(Integer id, Route route) {
         return collhandler.update(id,route);
     }
 
@@ -146,6 +160,17 @@ public class ServerManager implements Commands{
     @Override
     public String showHistory() {
         return hst.showHistory();
+    }
+
+    @Override
+    public String getConfig() {
+        try {
+            Path path = Paths.get(configLocation);
+            var fileString = Files.readString(path);
+            return fileString;
+        } catch (IOException e) {
+            return "внутренняя ошибка сервера ";
+        }
     }
 
     public void addCommandToHistiry(String com){

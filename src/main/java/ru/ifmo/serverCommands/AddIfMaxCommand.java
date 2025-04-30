@@ -4,32 +4,32 @@ import ru.ifmo.Commands;
 import ru.ifmo.coll.Location;
 import ru.ifmo.coll.Route;
 
-import javax.lang.model.element.Name;
 import java.io.IOException;
 
-public class AddCommand implements Icommand{
-    private Commands executor;
-    private String Commandname;
+public class AddIfMaxCommand implements Icommand{
+    Commands executor;
 
-
-
-
-    public AddCommand(Commands executor) {
+    public AddIfMaxCommand(Commands executor) {
         this.executor = executor;
     }
 
     @Override
     public String execute(String command) {
         try {
-            return executor.add(parceCommand(command));
+            return executor.addIfMax(parceCommand(command));
         } catch (IOException e) {
             return "ошибка при создании объекта: "+e;
         }
     }
 
-    private Route parceCommand(String command) throws IOException{
+    @Override
+    public String getName() {
+        return "add_if_max";
+    }
 
-        String RouteName= null;
+    private Route parceCommand(String command) throws IOException {
+
+        String RouteName = null;
         String FromLocationName = null;
         Integer fromx = null;
         Integer fromy = null;
@@ -41,10 +41,10 @@ public class AddCommand implements Icommand{
         Double distance = null;
 
         String[] args = command.split(" ");
-        if(!args[0].equals("add")) throw new RuntimeException();
+        if (!args[0].equals("add")) throw new RuntimeException();
         try {
             for (String arg : args) {
-                switch (arg.split("=")[0]){
+                switch (arg.split("=")[0]) {
                     case "RouteName":
                         RouteName = arg.split("=")[1];
                         break;
@@ -81,14 +81,9 @@ public class AddCommand implements Icommand{
             throw new IOException("incorrect number format");
         }
         try {
-            return new Route(RouteName,new Location(fromx,fromy,fromz,FromLocationName),new Location(tox,toy,toz,ToLocationName),distance);
+            return new Route(RouteName, new Location(fromx, fromy, fromz, FromLocationName), new Location(tox, toy, toz, ToLocationName), distance);
         } catch (IOException e) {
             throw new IOException(e);
         }
-    }
-
-    @Override
-    public String getName() {
-        return "add";
     }
 }

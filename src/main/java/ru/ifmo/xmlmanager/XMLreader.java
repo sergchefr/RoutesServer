@@ -59,7 +59,7 @@ public class XMLreader {
                 if (a.equals("<route>")){
                     try {
                         routes.add(new Route(
-                                Long.parseLong(constr.get("[<data>, <route>, <id>]")),
+                                Integer.parseInt(constr.get("[<data>, <route>, <id>]")),
                                 constr.get("[<data>, <route>, <name>]"),
                                 dateParse(constr.get("[<data>, <route>, <creationDate>]")),
                                 new Location(Integer.parseInt(constr.get("[<data>, <route>, <locationFrom>, <x>]")),

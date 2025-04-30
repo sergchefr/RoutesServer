@@ -9,15 +9,16 @@ public interface Commands {
     String add(Route route);
     String info();
     String show();
-    String update(Long id, Route obj);
+    String update(Integer id, Route obj);
     String removeById(long id);
     String clear();
     String exit();
     String addIfMax(Route route);
     String addIfMin(Route route);
     String avgdistance();
-    String printAsc();
-    String printAscDist();
+    String printAsc();//TODO use lambda
+    String printAscDist();//TODO use lambda
     String showHistory();
+    String getConfig();
     void addCommandToHistiry(String com);
 }

@@ -6,8 +6,8 @@ import java.util.Objects;
 
 /** Класс, характеризующий некий маршрут.*/
 public class Route implements Comparable{
-    private final Long id;//Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    private static Long nextid=1L;
+    private final Integer id;//Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    private static Integer nextid=1;
     private final String name; //Поле не может быть null, Строка не может быть пустой
     //private Coordinates coordinates; //Поле не может быть null
     private final java.util.Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
@@ -16,7 +16,7 @@ public class Route implements Comparable{
     private final double distance; //Поле не может быть null, Значение поля должно быть больше 1
 
 
-    public Route(Long id, String name, Date creationDate, Location from, Location to, double distance)throws IOException {
+    public Route(Integer id, String name, Date creationDate, Location from, Location to, double distance)throws IOException {
         if(id ==null)throw new IOException("id can`t be null");
         if(Objects.equals(name, ""))throw new IOException("name can`t be null or empty");
         if(from ==null)throw new IOException("from location can`t be null");
@@ -70,7 +70,7 @@ public class Route implements Comparable{
         return (int)(this.id-((Route)o).id);
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
