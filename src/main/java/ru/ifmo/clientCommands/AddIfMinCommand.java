@@ -1,4 +1,4 @@
-package ru.ifmo.serverCommands;
+package ru.ifmo.clientCommands;
 
 import ru.ifmo.Commands;
 import ru.ifmo.coll.Location;
@@ -15,10 +15,11 @@ public class AddIfMinCommand implements Icommand{
 
     @Override
     public String execute(String command) {
+        executor.addCommandToHistory(command.split(" ")[0]);
         try {
             return executor.addIfMin(parceCommand(command));
         } catch (IOException e) {
-            return "ошибка при создании объекта: "+e;
+            return "ошибка при создании объекта: ";
         }
     }
 

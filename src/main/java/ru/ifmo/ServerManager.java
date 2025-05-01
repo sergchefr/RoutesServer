@@ -3,7 +3,7 @@ package ru.ifmo;
 import ru.ifmo.coll.Route;
 import ru.ifmo.coll.TreeSetHandler;
 import ru.ifmo.history.History;
-import ru.ifmo.serverCommands.Icommand;
+import ru.ifmo.clientCommands.Icommand;
 import ru.ifmo.xmlmanager.*;
 
 import java.io.IOException;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Класс, управляющий функциями сервера и взаимодействующий с управляющим классом клиентской части
+ * Класс, управляющий функциями всеми функциями сервера и взаимодействующий с управляющим классом клиентской части
  */
 public class ServerManager implements Commands{
 
@@ -25,6 +25,7 @@ public class ServerManager implements Commands{
     private History hst = new History();
     private ConnectionManager connectionManager;
     private String configLocation;
+    private CommandManager commandManager;
 
 
 
@@ -34,10 +35,11 @@ public class ServerManager implements Commands{
         this.collhandler = collhandler;
         comWaitList = new ArrayDeque<>();
         commands = new HashMap<>();
+        commandManager = new CommandManager();
     }
 
-    public void addCommand(Icommand command){
-        commands.put(command.getName(),command);
+    public CommandManager getCommandManager() {
+        return commandManager;
     }
 
     public String execute(){
@@ -46,16 +48,6 @@ public class ServerManager implements Commands{
             return commands.get(com.split(" ")[0]).execute(com);
         }
         return "ошибка при выполнении команды: команда не получена сервером";
-    }
-
-    public String execute(String com){
-        Icommand icommand = commands.get(com.split(" ")[0]);
-        if(icommand!=null)return icommand.execute(com);
-        return "команда с таким имменем мне найдена";
-    }
-
-    public void addCommandToWaitList(String com){
-        comWaitList.addLast(com);
     }
 
     @Override
@@ -153,10 +145,6 @@ public class ServerManager implements Commands{
         return collhandler.printAscDist();
     }
 
-//    public void setClientManager(ClientManager clientManager) {
-//        this.clientManager = clientManager;
-//    }
-
     @Override
     public String showHistory() {
         return hst.showHistory();
@@ -167,13 +155,15 @@ public class ServerManager implements Commands{
         try {
             Path path = Paths.get(configLocation);
             var fileString = Files.readString(path);
+            //System.out.println(fileString);
             return fileString;
         } catch (IOException e) {
+            //System.out.println("ошибка при чтении конфига");
             return "внутренняя ошибка сервера ";
         }
     }
 
-    public void addCommandToHistiry(String com){
+    public void addCommandToHistory(String com){
         hst.add(com);
     }
 }

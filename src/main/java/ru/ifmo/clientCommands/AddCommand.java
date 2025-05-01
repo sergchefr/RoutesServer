@@ -1,4 +1,4 @@
-package ru.ifmo.serverCommands;
+package ru.ifmo.clientCommands;
 
 import ru.ifmo.Commands;
 import ru.ifmo.coll.Location;
@@ -6,30 +6,30 @@ import ru.ifmo.coll.Route;
 
 import java.io.IOException;
 
-public class AddIfMaxCommand implements Icommand{
-    Commands executor;
+public class AddCommand implements Icommand{
+    private Commands executor;
+    private String Commandname;
 
-    public AddIfMaxCommand(Commands executor) {
+
+
+
+    public AddCommand(Commands executor) {
         this.executor = executor;
     }
 
     @Override
     public String execute(String command) {
+        executor.addCommandToHistory(command.split(" ")[0]);
         try {
-            return executor.addIfMax(parceCommand(command));
+            return executor.add(parceCommand(command));
         } catch (IOException e) {
-            return "ошибка при создании объекта: "+e;
+            return "ошибка при создании объекта";
         }
     }
 
-    @Override
-    public String getName() {
-        return "add_if_max";
-    }
+    private Route parceCommand(String command) throws IOException{
 
-    private Route parceCommand(String command) throws IOException {
-
-        String RouteName = null;
+        String RouteName= null;
         String FromLocationName = null;
         Integer fromx = null;
         Integer fromy = null;
@@ -41,10 +41,10 @@ public class AddIfMaxCommand implements Icommand{
         Double distance = null;
 
         String[] args = command.split(" ");
-        if (!args[0].equals("add")) throw new RuntimeException();
+        if(!args[0].equals("add")) throw new RuntimeException();
         try {
             for (String arg : args) {
-                switch (arg.split("=")[0]) {
+                switch (arg.split("=")[0]){
                     case "RouteName":
                         RouteName = arg.split("=")[1];
                         break;
@@ -80,10 +80,17 @@ public class AddIfMaxCommand implements Icommand{
         } catch (NumberFormatException e) {
             throw new IOException("incorrect number format");
         }
+
         try {
-            return new Route(RouteName, new Location(fromx, fromy, fromz, FromLocationName), new Location(tox, toy, toz, ToLocationName), distance);
-        } catch (IOException e) {
+            return new Route(RouteName,new Location(fromx,fromy,fromz,FromLocationName),new Location(tox,toy,toz,ToLocationName),distance);
+        } catch (IOException|NullPointerException e) {
             throw new IOException(e);
         }
+
+    }
+
+    @Override
+    public String getName() {
+        return "add";
     }
 }

@@ -9,6 +9,7 @@ import java.util.*;
 public class TreeSetHandler{
     private final TreeSet<Route> coll;
     private final Date initDate;
+
     public TreeSetHandler() {
         coll = new TreeSet<>();
         this.initDate = new Date();
@@ -35,10 +36,7 @@ public class TreeSetHandler{
     public String show(){
         StringBuilder s = new StringBuilder();
         if(coll.isEmpty()) return "collection is empty\n";
-
-        for (Object o : coll) {
-            s.append(o.toString()).append("\n");
-        }
+        coll.stream().sorted(Comparator.comparing(Route::getName)).forEach(x-> s.append(x.toString()).append("\n"));
         return s.toString();
     }
     public String update(int id, Route route){
@@ -117,30 +115,17 @@ public class TreeSetHandler{
         return s/coll.size()+"\n";
     }
     public String printAsc(){
-        ArrayList<Route> routes = new ArrayList<>(Arrays.asList(getAllRoutes()));
-        routes.sort(Comparator.comparing(Route::getDistance));
-
         StringBuilder s = new StringBuilder();
-        if(routes.isEmpty()) return "collection is empty\n";
-
-        for (Object o : routes) {
-            s.append(o.toString()).append("\n");
-        }
-        return s+"\n";
+        if(coll.isEmpty()) return "collection is empty\n";
+        coll.stream().sorted(Comparator.comparing(Route::getDistance)).forEach(x-> s.append(x.toString()).append("\n"));
+        return s.toString();
 
     }
     public String printAscDist(){
-        double[] dist=new double[coll.size()];
-        int i =0;
-        for (Route o : coll) {
-            dist[i++]= o.getDistance();
-        }
-        Arrays.sort(dist);
-        StringBuilder s= new StringBuilder();
-        for (double v : dist) {
-            s.append(v).append(", ");
-        }
-        return s+"\n";
+        StringBuilder s = new StringBuilder();
+        if(coll.isEmpty()) return "collection is empty\n";
+        coll.stream().sorted(Comparator.comparing(Route::getDistance)).forEach(x-> s.append(x.getDistance()).append(", "));
+        return s.toString().substring(0, s.length()-2);
     }
     public Route[] getAllRoutes(){
        return coll.toArray(new Route[0]);
@@ -149,3 +134,5 @@ public class TreeSetHandler{
         return coll.size();
     }
 }
+//add RouteName=zov ToLocation=home fromx=1 fromy=2 fromz=3 FromLocation=front tox=0 toy=2 toz=1 distance=1488
+//add RouteName=goida ToLocation=goidaaa fromx=1 fromy=2 fromz=3 FromLocation=zzzzz tox=0 toy=2 toz=1 distance=1488

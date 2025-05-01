@@ -20,5 +20,5 @@ public interface Commands {
     String printAscDist();//TODO use lambda
     String showHistory();
     String getConfig();
-    void addCommandToHistiry(String com);
+    void addCommandToHistory(String com);
 }

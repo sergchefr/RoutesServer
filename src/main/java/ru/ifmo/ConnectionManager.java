@@ -20,11 +20,12 @@ import java.util.Set;
 public class ConnectionManager {
     private Selector selector;
     private int port;
-    ServerSocketChannel server;
-    private ServerManager serverManager;
+    private ServerSocketChannel server;
+    private  CommandManager commandManager;
 
-    public ConnectionManager(ServerManager serverManager,int port) {
-        this.serverManager=serverManager;
+
+    public ConnectionManager(CommandManager commandManager, int port) {
+        this.commandManager = commandManager;
         this.port = port;
         try {
             server = ServerSocketChannel.open();
@@ -91,7 +92,7 @@ public class ConnectionManager {
                         ByteArrayInputStream bais = new ByteArrayInputStream(buf);
                         ObjectInputStream ois = new ObjectInputStream(bais);
                         Request request = (Request) ois.readObject();
-                        String ans = serverManager.execute(request.getCommand());
+                        String ans = commandManager.executeClient(request.getCommand());
 
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
                         ObjectOutputStream ous = new ObjectOutputStream(baos);
