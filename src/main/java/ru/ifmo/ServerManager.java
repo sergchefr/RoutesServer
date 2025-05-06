@@ -70,12 +70,6 @@ public class ServerManager implements Commands{
             for (Route route : routes) {
                 collhandler.add(route);
             }
-
-//            for (Route route : routes) {
-//                while((add(route)).equals("element is already in the collection")){
-//                    route = new Route(route.getId()+1, route.getName(), route.getCreationDate(),route.getFromLocation(),route.getToLocation(), route.getDistance());
-//                }
-//            }
         }catch (IOException e){
             return "error while opening file: "+ filename;
         }catch (IllegalParamException e){
@@ -153,12 +147,15 @@ public class ServerManager implements Commands{
     @Override
     public String getConfig() {
         try {
+            String rt = System.getenv("config_location");
+        if(rt==null) throw new IOException("нет переменной окружения: config_location");
             Path path = Paths.get(configLocation);
             var fileString = Files.readString(path);
             //System.out.println(fileString);
             return fileString;
         } catch (IOException e) {
-            //System.out.println("ошибка при чтении конфига");
+
+            System.err.println("ошибка при чтении конфига:"+ e);
             return "внутренняя ошибка сервера ";
         }
     }

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<data>
+  <serverversion>0.1</serverversion>
+  <commands>
+    <command>
+      <name>add</name>
+      <description>добавляет элемент в базу данных на сервере</description>
+      <parameters>
+        <parameter>
+          <name>RouteName</name>
+          <limitation>String</limitation>
+          <description>имя маршрута</description>
+        </parameter>
+        <parameter>
+          <name>FromLocationName</name>
+          <limitation>String</limitation>
+          <description>имя точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>fromx</name>
+          <limitation>int</limitation>
+          <description>координата x точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>fromy</name>
+          <limitation>int</limitation>
+          <description>координата y точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>fromz</name>
+          <limitation>int</limitation>
+          <description>координата z точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>ToLocationName</name>
+          <limitation>String</limitation>
+          <description>имя точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>tox</name>
+          <limitation>int</limitation>
+          <description>координата x точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>toy</name>
+          <limitation>int</limitation>
+          <description>координата y точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>toz</name>
+          <limitation>int</limitation>
+          <description>координата z точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>distance</name>
+          <limitation>double:(0;+inf)</limitation>
+          <description>расстояние между точками отбытия и прибытия</description>
+        </parameter>
+      </parameters>
+      <flags>
+        <flag>-c</flag>
+      </flags>
+    </command>
+    <command>
+      <name>add_if_max</name>
+      <description>добавляет элемент, если у него самая большая длина в коллекции</description>
+      <parameters>
+        <parameter>
+          <name>RouteName</name>
+          <limitation>String</limitation>
+          <description>имя маршрута</description>
+        </parameter>
+        <parameter>
+          <name>FromLocationName</name>
+          <limitation>String</limitation>
+          <description>имя точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>fromx</name>
+          <limitation>int</limitation>
+          <description>координата x точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>fromy</name>
+          <limitation>int</limitation>
+          <description>координата y точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>fromz</name>
+          <limitation>int</limitation>
+          <description>координата z точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>ToLocationName</name>
+          <limitation>String</limitation>
+          <description>имя точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>tox</name>
+          <limitation>int</limitation>
+          <description>координата x точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>toy</name>
+          <limitation>int</limitation>
+          <description>координата y точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>toz</name>
+          <limitation>int</limitation>
+          <description>координата z точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>distance</name>
+          <limitation>double:(0;+inf)</limitation>
+          <description>расстояние между точками отбытия и прибытия</description>
+        </parameter>
+      </parameters>
+      <flags>
+        <flag>-c</flag>
+      </flags>
+    </command>
+    <command>
+      <name>add_if_min</name>
+      <description>добавляет элемент, если у него самая маленькая длина в коллекции</description>
+      <parameters>
+        <parameter>
+          <name>RouteName</name>
+          <limitation>String</limitation>
+          <description>имя маршрута</description>
+        </parameter>
+        <parameter>
+          <name>FromLocationName</name>
+          <limitation>String</limitation>
+          <description>имя точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>fromx</name>
+          <limitation>int</limitation>
+          <description>координата x точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>fromy</name>
+          <limitation>int</limitation>
+          <description>координата y точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>fromz</name>
+          <limitation>int</limitation>
+          <description>координата z точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>ToLocationName</name>
+          <limitation>String</limitation>
+          <description>имя точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>tox</name>
+          <limitation>int</limitation>
+          <description>координата x точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>toy</name>
+          <limitation>int</limitation>
+          <description>координата y точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>toz</name>
+          <limitation>int</limitation>
+          <description>координата z точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>distance</name>
+          <limitation>double:(0;+inf)</limitation>
+          <description>расстояние между точками отбытия и прибытия</description>
+        </parameter>
+      </parameters>
+      <flags>
+        <flag>-c</flag>
+      </flags>
+    </command>
+    <command>
+      <name>update</name>
+      <description>обновляет элемент с заданным id</description>
+      <parameters>
+        <parameter>
+          <name>id</name>
+          <limitation>int:[1;+inf)</limitation>
+          <description>id обновляемого элемента</description>
+        </parameter>
+        <parameter>
+          <name>RouteName</name>
+          <limitation>String</limitation>
+          <description>имя маршрута</description>
+        </parameter>
+        <parameter>
+          <name>FromLocationName</name>
+          <limitation>String</limitation>
+          <description>имя точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>fromx</name>
+          <limitation>int</limitation>
+          <description>координата x точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>fromy</name>
+          <limitation>int</limitation>
+          <description>координата y точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>fromz</name>
+          <limitation>int</limitation>
+          <description>координата z точки отправления</description>
+        </parameter>
+        <parameter>
+          <name>ToLocationName</name>
+          <limitation>String</limitation>
+          <description>имя точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>tox</name>
+          <limitation>int</limitation>
+          <description>координата x точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>toy</name>
+          <limitation>int</limitation>
+          <description>координата y точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>toz</name>
+          <limitation>int</limitation>
+          <description>координата z точки прибытия</description>
+        </parameter>
+        <parameter>
+          <name>distance</name>
+          <limitation>double:(0;+inf)</limitation>
+          <description>расстояние между точками отбытия и прибытия</description>
+        </parameter>
+      </parameters>
+      <flags>
+        <flag>-c</flag>
+      </flags>
+    </command>
+    <command>
+      <name>clear</name>
+      <description>очищает базу данных на сервере</description>
+    </command>
+    <command>
+      <name>remove_by_id</name>
+      <description>удаляет элемент с заданным id из базы данных на сервере</description>
+      <parameters>
+        <parameter>
+          <name>id</name>
+          <limitation>int:[1;+inf)</limitation>
+          <description>id удаляемого элемента</description>
+        </parameter>
+      </parameters>
+      <flags>
+        <flag>-c</flag>
+      </flags>
+    </command>
+    <command>
+      <name>show</name>
+      <description>выводит коллекцию на экран</description>
+    </command>
+    <command>
+      <name>avg_dist</name>
+      <description>выводит среднюю длину пути в коллекции</description>
+    </command>
+    <command>
+      <name>info</name>
+      <description>выводит информацию о коллекции</description>
+    </command>
+    <command>
+      <name>print_asc</name>
+      <description>выводит пути, отсортированные по длине</description>
+    </command>
+    <command>
+      <name>print_asc_dist</name>
+      <description>выводит длины путей, отсортированные по длине</description>
+    </command>
+    <command>
+      <name>show_history</name>
+      <description>выводит последние 12 выполненных команд</description>
+    </command>
+  </commands>
+</data>

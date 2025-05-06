@@ -13,12 +13,12 @@ public class GetConfigCommand implements Icommand{
     @Override
     public String execute(String command) {
         executor.addCommandToHistory(command.split(" ")[0]);
-        if(!command.equals("GetConfigCommand")) throw new RuntimeException();
+        if(!command.equals("load_config")) throw new RuntimeException();
         return executor.getConfig();
     }
 
     @Override
     public String getName() {
-        return "GetConfigCommand";
+        return "load_config";
     }
 }

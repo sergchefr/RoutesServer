@@ -5,7 +5,7 @@ import ru.ifmo.clientCommands.*;
 
 public class Main {
     public static void main(String[] args) {
-        ServerManager serverManager = new ServerManager("C:\\Users\\Сергей\\IdeaProjects\\RoutesServer\\resources\\config.xml");
+        ServerManager serverManager = new ServerManager("resources/config.xml");
         //"C:\\Users\\Сергей\\IdeaProjects\\RoutesServer\\resources\\config.xml"
         //"C:/Users/sergei/IdeaProjects/RoutesClient/config.xml"
 
@@ -34,6 +34,8 @@ public class Main {
 
         Console console = new Console(commandManager);
         //System.out.println(serverManager.getConfig());
+
+
         while (true) {
             connectionManager.checkNewCommands();
             console.manage();

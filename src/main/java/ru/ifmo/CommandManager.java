@@ -7,6 +7,7 @@ import java.util.HashMap;
 public class CommandManager {
     HashMap<String, Icommand> clientcommands;
     HashMap<String, Icommand> servercommands;
+
     public CommandManager() {
         clientcommands = new HashMap<>();
         servercommands = new HashMap<>();

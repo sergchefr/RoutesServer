@@ -42,7 +42,7 @@ public class ConnectionManager {
     }
 
     public ConnectionManager() {
-        port =1111;
+        port =23101;
     }
 
     public void checkNewCommands() {
@@ -66,10 +66,10 @@ public class ConnectionManager {
                         chan.configureBlocking(false);
 
                         chan.register(selector,SelectionKey.OP_READ);
-                        System.out.println("подключение приято и зарегистрировано");
+                        //System.out.println("подключение приято и зарегистрировано");
                     }
                 } catch (IOException e) {
-                    System.out.println("ошибка при принятии подключения");
+                    //System.out.println("ошибка при принятии подключения");
                 }
 
             } else if (key.isConnectable()) {
@@ -85,7 +85,7 @@ public class ConnectionManager {
                     int r = client.read(requestBuffer);
                     if (r == -1) {
                         client.close();
-                        System.out.println("client closed");
+                        //System.out.println("client closed");
                     } else {
                         var buf = new byte[r];
                         requestBuffer.get(0, buf);
