@@ -5,7 +5,7 @@ import ru.ifmo.clientCommands.*;
 
 public class Main {
     public static void main(String[] args) {
-        ServerManager serverManager = new ServerManager("resources/config.xml");
+        ServerManager serverManager =ServerManager.getInstance();
         //"C:\\Users\\Сергей\\IdeaProjects\\RoutesServer\\resources\\config.xml"
         //"C:/Users/sergei/IdeaProjects/RoutesClient/config.xml"
 
@@ -26,6 +26,7 @@ public class Main {
         commandManager.addClientCommand(new ShowHistoryCommand(serverManager));
         commandManager.addClientCommand(new UpdateCommand(serverManager));
         commandManager.addClientCommand(new RemoveByIdCommand(serverManager));
+        commandManager.addClientCommand(new RegisterCommand());
 
         commandManager.addServerCommand(new ExitCommand());
         commandManager.addServerCommand(new SaveCommand(serverManager));
@@ -41,6 +42,8 @@ public class Main {
             console.manage();
 
         }
+
+        
 
     }
 }

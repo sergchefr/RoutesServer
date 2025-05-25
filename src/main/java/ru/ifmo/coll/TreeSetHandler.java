@@ -6,11 +6,11 @@ import java.util.*;
 /**
  * Класс, управляющий коллекцией
  */
-public class TreeSetHandler{
+public class TreeSetHandler implements IRoutesHandler{
     private final TreeSet<Route> coll;
     private final Date initDate;
 
-    public TreeSetHandler() {
+    public TreeSetHandler()  {
         coll = new TreeSet<>();
         this.initDate = new Date();
     }
@@ -90,11 +90,7 @@ public class TreeSetHandler{
         return "element is not max\n";
     }
     public String addIfMin(Route route){
-        //        try{
-//            route = (Route) obj;
-//        }catch(ClassCastException e){
-//            return "collection handles only routes";
-//        }
+
 
         double mind=Float.POSITIVE_INFINITY;
         for (Route o : coll) {

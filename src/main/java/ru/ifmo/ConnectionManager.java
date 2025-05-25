@@ -1,5 +1,6 @@
 package ru.ifmo;
 
+import ru.ifmo.passwordmanager.PasswordManager;
 import ru.ifmo.transfer.Request;
 import ru.ifmo.transfer.Response;
 
@@ -22,18 +23,18 @@ public class ConnectionManager {
     private int port;
     private ServerSocketChannel server;
     private  CommandManager commandManager;
+    private PasswordManager passwordManager;
 
 
     public ConnectionManager(CommandManager commandManager, int port) {
         this.commandManager = commandManager;
+        passwordManager = PasswordManager.getInstance();
         this.port = port;
         try {
             server = ServerSocketChannel.open();
             server.socket().bind(new InetSocketAddress(port));
             server.configureBlocking(false);
-
             selector = Selector.open();
-
             server.register(selector, SelectionKey.OP_ACCEPT);
 
         } catch (IOException e) {
@@ -92,7 +93,22 @@ public class ConnectionManager {
                         ByteArrayInputStream bais = new ByteArrayInputStream(buf);
                         ObjectInputStream ois = new ObjectInputStream(bais);
                         Request request = (Request) ois.readObject();
-                        String ans = commandManager.executeClient(request.getCommand());
+
+
+                        String ans;
+                        String name = request.getCommand().split(" ")[0];
+//                        if(name.equals("register")){
+//
+//                            passwordManager.addUser(request.getUser(), request.getPassword());
+//                            ans = "user added";
+//                        }else
+                        if(name.equals("register")|passwordManager.checkPassword(request.getUser(), request.getPassword())){
+                            ans = commandManager.executeClient(request.getCommand());
+                        }else {
+                            ans = "пользователь не зарегистрирован";
+                        }
+
+
 
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
                         ObjectOutputStream ous = new ObjectOutputStream(baos);

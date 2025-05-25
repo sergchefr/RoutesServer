@@ -9,11 +9,11 @@ public class Route implements Comparable{
     private final Integer id;//Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private static Integer nextid=1;
     private final String name; //Поле не может быть null, Строка не может быть пустой
-    //private Coordinates coordinates; //Поле не может быть null
     private final java.util.Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private final Location from; //Поле может быть null
     private final Location to; //Поле не может быть null
     private final double distance; //Поле не может быть null, Значение поля должно быть больше 1
+    private String owner;
 
 
     public Route(Integer id, String name, Date creationDate, Location from, Location to, double distance)throws IOException {
@@ -32,6 +32,7 @@ public class Route implements Comparable{
         this.creationDate = creationDate;
         this.from = from;
         this.to = to;
+        this.owner = "undefined";
         this.distance = distance;
     }
 
@@ -42,14 +43,15 @@ public class Route implements Comparable{
         if(name.strip().isEmpty())throw new IOException("name can`t be null");
         if(distance<0) throw new IOException("distance can't be negative");
 
-        id=nextid;
-        nextid++;
+        id=nextid++;
+        //nextid++;
         this.name = name;
         //this.coordinates = coordinates;
         this.from = from;
         this.to = to;
         this.distance = distance;
         this.creationDate=new Date();
+        this.owner = "undefined";
     }
 
     @Override
@@ -97,4 +99,6 @@ public class Route implements Comparable{
     public Location getFromLocation(){return from;}
 
     public Location getToLocation(){return to;}
+
+
 }

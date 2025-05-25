@@ -1,5 +1,6 @@
 package ru.ifmo;
 
+import ru.ifmo.coll.IRoutesHandler;
 import ru.ifmo.coll.Route;
 import ru.ifmo.coll.TreeSetHandler;
 import ru.ifmo.history.History;
@@ -15,21 +16,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Класс, управляющий функциями всеми функциями сервера и взаимодействующий с управляющим классом клиентской части
+ * Класс, управляющий всеми функциями сервера
  */
-public class ServerManager implements Commands{
+public class ServerManager{
 
     private ArrayDeque<String> comWaitList;
     private HashMap<String,Icommand> commands;
-    private TreeSetHandler collhandler;
+    private IRoutesHandler collhandler;
     private History hst = new History();
-    private ConnectionManager connectionManager;
     private String configLocation;
     private CommandManager commandManager;
 
+    private static volatile ServerManager instance;
 
-
-    public ServerManager(String configLocation) {
+    private ServerManager(String configLocation) {
         this.configLocation = configLocation;
         collhandler= new TreeSetHandler();
         this.collhandler = collhandler;
@@ -50,7 +50,6 @@ public class ServerManager implements Commands{
         return "ошибка при выполнении команды: команда не получена сервером";
     }
 
-    @Override
     public String save(String filename) {
         XMLwriter writer=new XMLwriter();
         try {
@@ -61,7 +60,6 @@ public class ServerManager implements Commands{
         return "collection saved";
     }
 
-    @Override
     public String load(String filename) {
         int errorCounter=0;
         XMLreader reader = new XMLreader();
@@ -78,73 +76,6 @@ public class ServerManager implements Commands{
         return "file loaded, "+errorCounter+" errors";
     }
 
-    @Override
-    public String add(Route route) {
-        return collhandler.add(route);
-    }
-
-    @Override
-    public String info() {
-        return collhandler.info();
-    }
-
-    @Override
-    public String show() {
-        return collhandler.show();
-    }
-
-    @Override
-    public String update(Integer id, Route route) {
-        return collhandler.update(id,route);
-    }
-
-    @Override
-    public String removeById(long id) {
-        return collhandler.removeById(id);
-    }
-
-    @Override
-    public String clear() {
-        return collhandler.clear();
-    }
-
-    @Override
-    public String exit() {
-        System.exit(0);
-        return "";
-    }
-
-    @Override
-    public String addIfMax(Route route) {
-        return collhandler.addIfMax(route);
-    }
-
-    @Override
-    public String addIfMin(Route route) {
-        return collhandler.addIfMin(route);
-    }
-
-    @Override
-    public String avgdistance() {
-        return collhandler.avgdistance();
-    }
-
-    @Override
-    public String printAsc() {
-        return collhandler.printAsc();
-    }
-
-    @Override
-    public String printAscDist() {
-        return collhandler.printAscDist();
-    }
-
-    @Override
-    public String showHistory() {
-        return hst.showHistory();
-    }
-
-    @Override
     public String getConfig() {
         try {
             String rt = System.getenv("config_location");
@@ -162,5 +93,14 @@ public class ServerManager implements Commands{
 
     public void addCommandToHistory(String com){
         hst.add(com);
+    }
+
+    public static ServerManager getInstance() {
+        if(instance==null){
+            synchronized (ServerManager.class){
+                if(instance==null) instance = new ServerManager("resources/config.xml");
+            }
+        }
+        return instance;
     }
 }

@@ -6,37 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="d03ec477-5e5e-44d6-bd31-624d6d728fb5" name="Changes" comment="first">
       <change afterPath="$PROJECT_DIR$/.idea/RoutesServer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/CommandManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerCommands/ExitCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerCommands/LoadCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerCommands/SaveCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ru/ifmo/ConnectionManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ru/ifmo/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ru/ifmo/transfer/Request.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ru/ifmo/transfer/Response.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/RegisterCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/IRoutesHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/passwordmanager/PasswordManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/CommandManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ConnectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/Console.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Coordinates.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Route.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/TreeSetHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/TreeSetHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/AddIfMaxCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddIfMaxCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/AddIfMinCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddIfMinCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/AvgDistanceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AvgDistanceCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ClearCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/GetConfigCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/GetConfigCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/Icommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/Icommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/InfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/InfoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/PrintAscCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/PrintAscCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/PrintAscDistCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/PrintAscDistCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/RemoveByIdCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/RemoveByIdCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/ShowCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ShowCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/ShowHistoryCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ShowHistoryCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/serverCommands/UpdateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/UpdateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/transfer/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/transfer/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/ifmo/ConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/ifmo/ConnectionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/ifmo/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/ifmo/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/ifmo/transfer/Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/ifmo/transfer/Request.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/ifmo/transfer/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/ifmo/transfer/Response.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +34,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -62,7 +50,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/sergchefr/RoutesServer&quot;,
-    &quot;accountId&quot;: &quot;dca9bb9c-8723-4241-8072-25cf83aeb18c&quot;
+    &quot;accountId&quot;: &quot;e8130771-e36a-4441-b6f4-a9bee59c0630&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -81,7 +69,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergei/Desktop/прога/lab6/config.xml&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Сергей/IdeaProjects/RoutesClient&quot;
   }
 }</component>
   <component name="RunManager">
@@ -103,5 +91,16 @@
       <updated>1745185507091</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

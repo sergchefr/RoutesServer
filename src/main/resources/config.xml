@@ -285,5 +285,21 @@
       <name>show_history</name>
       <description>выводит последние 12 выполненных команд</description>
     </command>
+    <command>
+      <name>register</name>
+      <description>регистрирует нового пользователя</description>
+      <parameters>
+        <parameter>
+          <name>username</name>
+          <description>имя пользователя</description>
+          <limitation>String</limitation>
+        </parameter>
+        <parameter>
+          <name>password</name>
+          <description>пароль пользователя</description>
+          <limitation>String</limitation>
+        </parameter>
+      </parameters>
+    </command>
   </commands>
 </data>

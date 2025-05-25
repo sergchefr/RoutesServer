@@ -1,6 +1,7 @@
 package ru.ifmo;
 
 import ru.ifmo.clientCommands.Icommand;
+import ru.ifmo.passwordmanager.PasswordManager;
 
 import java.util.HashMap;
 
@@ -27,7 +28,6 @@ public class CommandManager {
         String name = command.split(" ")[0];
         var comObj = clientcommands.get(name);
         if (comObj==null) return "команды с таким именем не существует";
-
         return comObj.execute(command);
     }
 

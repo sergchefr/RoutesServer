@@ -4,14 +4,24 @@ import java.io.Serializable;
 
 public class Request implements Serializable {
     private final String command;
+    private final String user;
+    private final String password;
 
-    private static final long serialVersionUID = 1L;
-
-    public Request(String command) {
+    public Request(String command, String user, String password) {
         this.command = command;
+        this.user = user;
+        this.password = password;
     }
 
     public String getCommand() {
         return command;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }
