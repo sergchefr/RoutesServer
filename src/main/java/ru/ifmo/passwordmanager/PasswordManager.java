@@ -1,12 +1,16 @@
 package ru.ifmo.passwordmanager;
 
+import ru.ifmo.coll.DatabaseManager;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Arrays;
 import java.util.HashMap;
 
 public class PasswordManager {
-    private HashMap<String, byte[]> users;
+    private HashMap<String, String> users;
     private static volatile PasswordManager instance;
 
     private PasswordManager() {
@@ -24,14 +28,19 @@ public class PasswordManager {
         }return instance;
     }
 
-    public void addUser(String username, String password){
+    public String addUser(String username, String password){
+        //TODO добавить загрузку тз бд новых паролей
         try {
             MessageDigest digester = MessageDigest.getInstance("SHA-512");
             byte[] input = password.getBytes();
             byte[] digest = digester.digest(input);
-            users.put(username, digest);
+            DatabaseManager.getInstance().addUser(username, new String(digest));
+            users.put(username, new String(digest));
+            return "пользователь добавлен";
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
+        }catch (SQLIntegrityConstraintViolationException e){
+            return "такой пользователь уже существует";
         }
     }
 
@@ -42,7 +51,7 @@ public class PasswordManager {
             byte[] input = password.getBytes();
             byte[] digest = digester.digest(input);
             if(digest==null) return false;
-            return Arrays.equals(users.get(username), digest);
+            return users.get(username).equals(new String(digest));
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }

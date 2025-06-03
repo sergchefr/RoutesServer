@@ -1,12 +1,12 @@
 package ru.ifmo.clientCommands;
 
-import ru.ifmo.Commands;
+import ru.ifmo.ServerManager;
 
 public class ShowHistoryCommand implements Icommand{
-    private Commands executor;
+    private ServerManager executor;
 
-    public ShowHistoryCommand(Commands executor) {
-        this.executor = executor;
+    public ShowHistoryCommand() {
+        this.executor = ServerManager.getInstance();
     }
 
     @Override

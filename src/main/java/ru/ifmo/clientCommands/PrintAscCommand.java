@@ -1,17 +1,18 @@
 package ru.ifmo.clientCommands;
 
-import ru.ifmo.Commands;
+import ru.ifmo.ServerManager;
+import ru.ifmo.coll.IRoutesHandler;
 
 public class PrintAscCommand implements Icommand{
-    Commands executor;
+    IRoutesHandler executor;
 
-    public PrintAscCommand(Commands executor) {
+    public PrintAscCommand(IRoutesHandler executor) {
         this.executor = executor;
     }
 
     @Override
     public String execute(String command) {
-        executor.addCommandToHistory(command.split(" ")[0]);
+        ServerManager.getInstance().addCommandToHistory(command.split(" ")[0]);
         return executor.printAsc();
     }
 

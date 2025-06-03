@@ -95,6 +95,10 @@ public class ServerManager{
         hst.add(com);
     }
 
+    public String showHistory(){
+        return hst.showHistory();
+    }
+
     public static ServerManager getInstance() {
         if(instance==null){
             synchronized (ServerManager.class){

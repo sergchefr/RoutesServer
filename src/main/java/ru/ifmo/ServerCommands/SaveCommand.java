@@ -1,13 +1,13 @@
 package ru.ifmo.ServerCommands;
 
-import ru.ifmo.Commands;
+import ru.ifmo.ServerManager;
 import ru.ifmo.clientCommands.Icommand;
 
 public class SaveCommand implements Icommand {
-    Commands executor;
+    private ServerManager executor;
 
-    public SaveCommand(Commands executor) {
-        this.executor = executor;
+    public SaveCommand() {
+        this.executor = ServerManager.getInstance();
     }
 
     @Override

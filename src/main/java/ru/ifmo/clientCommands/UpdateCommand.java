@@ -1,27 +1,27 @@
 package ru.ifmo.clientCommands;
 
-import ru.ifmo.Commands;
+
+import ru.ifmo.ServerManager;
+import ru.ifmo.coll.IRoutesHandler;
 import ru.ifmo.coll.Location;
 import ru.ifmo.coll.Route;
 
 import java.io.IOException;
 
 public class UpdateCommand implements Icommand {
-    Commands executor;
-    Integer id;
-    Route route;
+    private IRoutesHandler executor;
 
-    public UpdateCommand(Commands executor) {
+    public UpdateCommand(IRoutesHandler executor) {
         this.executor = executor;
     }
 
     @Override
     public String execute(String command) {
-        executor.addCommandToHistory(command.split(" ")[0]);
+        ServerManager.getInstance().addCommandToHistory(command.split(" ")[0]);
         try {
-            id =null;
-            route=null;
-            parceCommand(command);
+            Object[] args = parceCommand(command);
+            Integer id = (Integer) args[0];
+            Route route = (Route) args[1];
             if (id == null | route == null) return "ошибка при создании объекта";
             return executor.update(id, route);
         } catch (IOException e) {
@@ -34,7 +34,7 @@ public class UpdateCommand implements Icommand {
         return "update";
     }
 
-    private void parceCommand(String command) throws IOException {
+    private Object[] parceCommand(String command) throws IOException {
 
         String RouteName = null;
         String FromLocationName = null;
@@ -46,6 +46,7 @@ public class UpdateCommand implements Icommand {
         Integer toy = null;
         Integer toz = null;
         Double distance = null;
+        Integer id = null;
 
         String[] args = command.split(" ");
         if (!args[0].equals("add")) throw new RuntimeException();
@@ -91,8 +92,11 @@ public class UpdateCommand implements Icommand {
             throw new IOException("incorrect number format");
         }
         try {
-            this.id = id;
-            route = new Route(RouteName, new Location(fromx, fromy, fromz, FromLocationName), new Location(tox, toy, toz, ToLocationName), distance);
+            Object[] h = new Object[2];
+            h[0]= id;
+            Route route = new Route(RouteName, new Location(fromx, fromy, fromz, FromLocationName), new Location(tox, toy, toz, ToLocationName), distance);
+            h[1] = route;
+            return h;
         } catch (IOException e) {
             throw new IOException(e);
         }

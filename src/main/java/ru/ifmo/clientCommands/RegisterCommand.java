@@ -1,12 +1,10 @@
 package ru.ifmo.clientCommands;
 
-import ru.ifmo.Commands;
 import ru.ifmo.passwordmanager.PasswordManager;
 
 public class RegisterCommand implements Icommand{
     private PasswordManager passwordManager;
-    private String username;
-    private String password;
+
 
     public RegisterCommand() {
         passwordManager = PasswordManager.getInstance();
@@ -14,9 +12,9 @@ public class RegisterCommand implements Icommand{
 
     @Override
     public String execute(String command) {
-        parcecommand(command);
-        if(username==null|password==null) return "команда введена неверно";
-        passwordManager.addUser(username, password);
+        String[] args = parcecommand(command);
+        if(args==null) return "команда введена неверно";
+        passwordManager.addUser(args[0],args[1]);
         return "пользователь добавлен";
     }
 
@@ -25,7 +23,9 @@ public class RegisterCommand implements Icommand{
         return "register";
     }
 
-    private void parcecommand(String command){
+    private String[] parcecommand(String command){
+        String username = null;
+        String password = null;
         var args = command.strip().split(" ");
         for (String arg : args) {
             switch (arg.split("=")[0]) {
@@ -37,5 +37,7 @@ public class RegisterCommand implements Icommand{
                     break;
             }
         }
+        if(username==null|password==null) return null;
+        return new String[] {username,password};
     }
 }

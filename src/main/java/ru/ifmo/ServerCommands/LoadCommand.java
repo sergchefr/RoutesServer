@@ -1,13 +1,13 @@
 package ru.ifmo.ServerCommands;
 
-import ru.ifmo.Commands;
+import ru.ifmo.ServerManager;
 import ru.ifmo.clientCommands.Icommand;
 
 public class LoadCommand implements Icommand {
-    Commands executor;
+    private ServerManager executor;
 
-    public LoadCommand(Commands executor) {
-        this.executor = executor;
+    public LoadCommand() {
+        this.executor = ServerManager.getInstance();
     }
 
     @Override

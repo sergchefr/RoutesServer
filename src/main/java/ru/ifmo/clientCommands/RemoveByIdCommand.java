@@ -1,17 +1,18 @@
 package ru.ifmo.clientCommands;
 
-import ru.ifmo.Commands;
+import ru.ifmo.ServerManager;
+import ru.ifmo.coll.IRoutesHandler;
 
 public class RemoveByIdCommand implements Icommand{
-    private Commands executor;
+    private IRoutesHandler executor;
 
-    public RemoveByIdCommand(Commands executor) {
+    public RemoveByIdCommand(IRoutesHandler executor) {
         this.executor = executor;
     }
 
     @Override
     public String execute(String command) {
-        executor.addCommandToHistory(command.split(" ")[0]);
+        ServerManager.getInstance().addCommandToHistory(command.split(" ")[0]);
         Integer id = parceCommand(command);
         if(id==null) return "ошибка при выполнении команды";
         return executor.removeById(id);

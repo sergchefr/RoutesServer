@@ -1,13 +1,13 @@
 package ru.ifmo.clientCommands;
 
-import ru.ifmo.Commands;
+import ru.ifmo.ServerManager;
 
 public class GetConfigCommand implements Icommand{
 
-    private Commands executor;
+    private ServerManager executor;
 
-    public GetConfigCommand(Commands executor) {
-        this.executor = executor;
+    public GetConfigCommand() {
+        this.executor = ServerManager.getInstance();
     }
 
     @Override

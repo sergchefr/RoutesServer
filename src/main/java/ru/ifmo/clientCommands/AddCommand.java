@@ -1,25 +1,26 @@
 package ru.ifmo.clientCommands;
 
-import ru.ifmo.Commands;
+import ru.ifmo.ServerManager;
+import ru.ifmo.coll.IRoutesHandler;
 import ru.ifmo.coll.Location;
 import ru.ifmo.coll.Route;
 
 import java.io.IOException;
 
 public class AddCommand implements Icommand{
-    private Commands executor;
+    private IRoutesHandler executor;
     private String Commandname;
 
 
 
 
-    public AddCommand(Commands executor) {
+    public AddCommand(IRoutesHandler executor) {
         this.executor = executor;
     }
 
     @Override
     public String execute(String command) {
-        executor.addCommandToHistory(command.split(" ")[0]);
+        ServerManager.getInstance().addCommandToHistory(command.split(" ")[0]);
         try {
             return executor.add(parceCommand(command));
         } catch (IOException e) {

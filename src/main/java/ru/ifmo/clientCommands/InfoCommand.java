@@ -1,17 +1,18 @@
 package ru.ifmo.clientCommands;
 
-import ru.ifmo.Commands;
+import ru.ifmo.ServerManager;
+import ru.ifmo.coll.IRoutesHandler;
 
 public class InfoCommand implements Icommand{
-    Commands executor;
+    IRoutesHandler executor;
 
-    public InfoCommand(Commands executor) {
+    public InfoCommand(IRoutesHandler executor) {
         this.executor = executor;
     }
 
     @Override
     public String execute(String command) {
-        executor.addCommandToHistory(command.split(" ")[0]);
+        ServerManager.getInstance().addCommandToHistory(command.split(" ")[0]);
         return executor.info();
     }
 

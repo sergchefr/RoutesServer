@@ -13,8 +13,6 @@ public class Route implements Comparable{
     private final Location from; //Поле может быть null
     private final Location to; //Поле не может быть null
     private final double distance; //Поле не может быть null, Значение поля должно быть больше 1
-    private String owner;
-
 
     public Route(Integer id, String name, Date creationDate, Location from, Location to, double distance)throws IOException {
         if(id ==null)throw new IOException("id can`t be null");
@@ -32,7 +30,6 @@ public class Route implements Comparable{
         this.creationDate = creationDate;
         this.from = from;
         this.to = to;
-        this.owner = "undefined";
         this.distance = distance;
     }
 
@@ -51,7 +48,6 @@ public class Route implements Comparable{
         this.to = to;
         this.distance = distance;
         this.creationDate=new Date();
-        this.owner = "undefined";
     }
 
     @Override

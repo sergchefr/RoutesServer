@@ -1,21 +1,22 @@
 package ru.ifmo.clientCommands;
 
-import ru.ifmo.Commands;
+import ru.ifmo.ServerManager;
+import ru.ifmo.coll.IRoutesHandler;
 import ru.ifmo.coll.Location;
 import ru.ifmo.coll.Route;
 
 import java.io.IOException;
 
 public class AddIfMaxCommand implements Icommand{
-    Commands executor;
+    IRoutesHandler executor;
 
-    public AddIfMaxCommand(Commands executor) {
+    public AddIfMaxCommand(IRoutesHandler executor) {
         this.executor = executor;
     }
 
     @Override
     public String execute(String command) {
-        executor.addCommandToHistory(command.split(" ")[0]);
+        ServerManager.getInstance().addCommandToHistory(command.split(" ")[0]);
         try {
             return executor.addIfMax(parceCommand(command));
         } catch (IOException e) {
