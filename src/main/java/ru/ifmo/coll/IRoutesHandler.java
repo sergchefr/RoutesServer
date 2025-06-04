@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Comparator;
 
 public interface IRoutesHandler {
-    public String add(Route route);
+    public String add(Route route, String username);
     public String info();
     public String show();
     public String update(int id, Route route);

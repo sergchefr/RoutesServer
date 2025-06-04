@@ -1,26 +1,32 @@
 package ru.ifmo.coll;
 
+import ru.ifmo.SQLservices.DatabaseManager;
+
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.HashMap;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class ProxyCacheArray implements IRoutesHandler{
-    private final ArrayList<Route> coll;
+    private final HashMap<Integer, Route> localcoll;
+    private final DatabaseManager database;
     private final Date initDate;
     private ReentrantReadWriteLock lock;
     private boolean usedelay;
 
     public ProxyCacheArray(){
-        coll = new ArrayList<>();
+        localcoll = new HashMap<>();
         initDate = new Date();
         lock = new ReentrantReadWriteLock();
+        database = DatabaseManager.getInstance();
         usedelay = true;
+        // TODO загрузка из БД
     }
 
     @Override
-    public String add(Route route) {
-        //lock.lock();
+    public String add(Route route, String username) {
+        lock.writeLock().lock();
+
         if(usedelay){
             try {
                 Thread.sleep(1000);
@@ -28,17 +34,22 @@ public class ProxyCacheArray implements IRoutesHandler{
                 throw new RuntimeException(e);
             }
         }
-        try{
-            if(coll.add(route)) return "маршрут добавлен";
-            return "маршрут не добавлен";
+
+        try {
+            int id = database.addRoute(route, username);
+            route.setId(id);
+            localcoll.put(id, route);
+            return "путь успешно добавлен. Его id: "+id;
+        }catch (DatabaseException e){
+            return "ошибка добавления";
         }finally {
-            //lock.unlock();
+            lock.writeLock().unlock();
         }
     }
 
     @Override
     public String info() {
-        //lock.lock();
+        lock.readLock().lock();
         if(usedelay){
             try {
                 Thread.sleep(1000);
@@ -47,9 +58,9 @@ public class ProxyCacheArray implements IRoutesHandler{
             }
         }
         try{
-            return "размер:"+coll.size()+", дата инициализаии:"+initDate;
+            return "размер:"+ localcoll.size()+", дата инициализаии:"+initDate;
         }finally {
-            //lock.unlock();
+            lock.readLock().unlock();
         }
     }
 

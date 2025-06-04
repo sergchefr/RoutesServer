@@ -6,8 +6,7 @@ import java.util.Objects;
 
 /** Класс, характеризующий некий маршрут.*/
 public class Route implements Comparable{
-    private final Integer id;//Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    private static Integer nextid=1;
+    private Integer id;//Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private final String name; //Поле не может быть null, Строка не может быть пустой
     private final java.util.Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private final Location from; //Поле может быть null
@@ -21,10 +20,8 @@ public class Route implements Comparable{
         if(to ==null)throw new IOException("destination location can`t be null");
         if(name.strip().isEmpty())throw new IOException("name can`t be null");
         if(distance<0) throw new IOException("distance can't be negative");
-        if(id<1)throw new IOException("id can't be negative or zero");
-        if(id >=nextid) nextid=id+1;
 
-        this.id = id;
+        this.id = -1;
         this.name = name;
         //this.coordinates = coordinates;
         this.creationDate = creationDate;
@@ -40,10 +37,7 @@ public class Route implements Comparable{
         if(name.strip().isEmpty())throw new IOException("name can`t be null");
         if(distance<0) throw new IOException("distance can't be negative");
 
-        id=nextid++;
-        //nextid++;
         this.name = name;
-        //this.coordinates = coordinates;
         this.from = from;
         this.to = to;
         this.distance = distance;
@@ -95,6 +89,10 @@ public class Route implements Comparable{
     public Location getFromLocation(){return from;}
 
     public Location getToLocation(){return to;}
+
+    public void setId(int id){
+        this.id=id;
+    }
 
 
 }

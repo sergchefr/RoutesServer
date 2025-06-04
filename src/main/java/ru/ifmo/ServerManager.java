@@ -66,7 +66,7 @@ public class ServerManager{
         try{
             ArrayList<Route> routes=reader.getRoutes(filename);
             for (Route route : routes) {
-                collhandler.add(route);
+                collhandler.add(route, "unknown");
             }
         }catch (IOException e){
             return "error while opening file: "+ filename;

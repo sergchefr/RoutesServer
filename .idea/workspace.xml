@@ -5,29 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d03ec477-5e5e-44d6-bd31-624d6d728fb5" name="Changes" comment="broken?">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/DatabaseManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/ProxyCacheArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/DBcreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/DatabaseUserManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/SQLconnectionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/DatabaseException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/Commands.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerCommands/LoadCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerCommands/LoadCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerCommands/SaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerCommands/SaveCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddIfMaxCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddIfMaxCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddIfMinCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddIfMinCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AvgDistanceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AvgDistanceCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ClearCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/GetConfigCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/GetConfigCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/InfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/InfoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/PrintAscCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/PrintAscCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/PrintAscDistCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/PrintAscDistCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/RegisterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/RegisterCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/RemoveByIdCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/RemoveByIdCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ShowCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ShowCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ShowHistoryCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ShowHistoryCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/UpdateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/UpdateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/IRoutesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/IRoutesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/ProxyCacheArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/ProxyCacheArray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Route.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/passwordmanager/PasswordManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/passwordmanager/PasswordManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ru/ifmo/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/ifmo/Main.class" afterDir="false" />
@@ -41,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Exception" />
         <option value="Class" />
       </list>
     </option>
@@ -106,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748189387727</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="broken?">
+      <option name="closed" value="true" />
+      <created>1748981352050</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748981352050</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

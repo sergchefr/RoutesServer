@@ -1,40 +1,33 @@
 package ru.ifmo;
 
-import ru.ifmo.ServerCommands.*;
-import ru.ifmo.clientCommands.*;
-import ru.ifmo.coll.DatabaseManager;
-import ru.ifmo.coll.Location;
+import ru.ifmo.SQLservices.DBcreator;
+import ru.ifmo.SQLservices.DatabaseManager;
 import ru.ifmo.coll.ProxyCacheArray;
-import ru.ifmo.coll.Route;
 import ru.ifmo.passwordmanager.PasswordManager;
-
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        DBcreator dBcreator =new DBcreator();
+        dBcreator.prepareBD();
+        PasswordManager passwordManager = PasswordManager.getInstance();
         ServerManager serverManager =ServerManager.getInstance();
+
+
         //"C:\\Users\\Сергей\\IdeaProjects\\RoutesServer\\resources\\config.xml"
         //"C:/Users/sergei/IdeaProjects/RoutesClient/config.xml"
 
         ConnectionManager connectionManager = new ConnectionManager(serverManager.getCommandManager(), 1111);
         CommandManager commandManager = serverManager.getCommandManager();
 
-        PasswordManager passwordManager = PasswordManager.getInstance();
-        passwordManager.addUser("admin", "password");
-
-
+        //passwordManager.addUser("admin", "password");
 
         ProxyCacheArray cache = new ProxyCacheArray();
         DatabaseManager databaseManager = DatabaseManager.getInstance();
-        try {
-            databaseManager.addRoute(new Route("rtname", new Location(1,2,3,"frname"), new Location(5,6,7,"tonn"), 500), 1);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            databaseManager.addRoute(new Route("rtname", new Location(1,2,3,"frname"), new Location(5,6,7,"tonn"), 500), "admin");
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
 
 
 //        commandManager.addClientCommand(new AddCommand());
