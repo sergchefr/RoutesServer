@@ -5,6 +5,7 @@ import ru.ifmo.coll.Route;
 import ru.ifmo.coll.TreeSetHandler;
 import ru.ifmo.history.History;
 import ru.ifmo.clientCommands.Icommand;
+import ru.ifmo.transfer.Request;
 import ru.ifmo.xmlmanager.*;
 
 import java.io.IOException;
@@ -45,7 +46,7 @@ public class ServerManager{
     public String execute(){
         if(!comWaitList.isEmpty()){
             String com  = comWaitList.pollFirst();
-            return commands.get(com.split(" ")[0]).execute(com);
+            return commands.get(com.split(" ")[0]).execute((new Request(com, "server_admin", "not_password")));
         }
         return "ошибка при выполнении команды: команда не получена сервером";
     }

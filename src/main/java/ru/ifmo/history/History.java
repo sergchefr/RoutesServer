@@ -13,11 +13,13 @@ public class History {
     }
 
     public String showHistory(){
-        String c ="";
+        StringBuilder builder = new StringBuilder();
         for (String lcom : lcoms) {
-            c=c+lcom+", ";
+            builder.append(lcom).append(", ");
         }
-        return c.substring(0,c.length()-2);
+        String a = builder.toString();
+        if(!a.isEmpty()) return a.substring(0,a.length()-2);
+        return "история пока пуста";
 
     }
     public void add(String com){

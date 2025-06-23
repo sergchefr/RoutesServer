@@ -1,6 +1,7 @@
 package ru.ifmo.clientCommands;
 
 import ru.ifmo.passwordmanager.PasswordManager;
+import ru.ifmo.transfer.Request;
 
 public class RegisterCommand implements Icommand{
     private PasswordManager passwordManager;
@@ -11,11 +12,11 @@ public class RegisterCommand implements Icommand{
     }
 
     @Override
-    public String execute(String command) {
+    public String execute(Request com) {
+        String command = com.getCommand();
         String[] args = parcecommand(command);
         if(args==null) return "команда введена неверно";
-        passwordManager.addUser(args[0],args[1]);
-        return "пользователь добавлен";
+        return passwordManager.addUser(args[0],args[1]);
     }
 
     @Override

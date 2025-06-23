@@ -6,19 +6,16 @@ import ru.ifmo.transfer.Response;
 
 import java.io.*;
 import java.net.InetSocketAddress;
-import java.net.ServerSocket;
 import java.net.SocketException;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Set;
 
-public class ConnectionManager {
+public class ConnectionManager implements IconnManager{
     private Selector selector;
     private int port;
     private ServerSocketChannel server;
@@ -43,7 +40,7 @@ public class ConnectionManager {
     }
 
     public ConnectionManager() {
-        port =23101;
+        port =1111;
     }
 
     public void checkNewCommands() {
@@ -102,11 +99,8 @@ public class ConnectionManager {
 //                            passwordManager.addUser(request.getUser(), request.getPassword());
 //                            ans = "user added";
 //                        }else
-                        if(name.equals("register")|passwordManager.checkPassword(request.getUser(), request.getPassword())){
-                            ans = commandManager.executeClient(request.getCommand());
-                        }else {
-                            ans = "пользователь не зарегистрирован";
-                        }
+
+                        ans = commandManager.executeClient(request);
 
 
 

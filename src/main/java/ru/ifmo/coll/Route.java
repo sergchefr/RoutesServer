@@ -12,6 +12,7 @@ public class Route implements Comparable{
     private final Location from; //Поле может быть null
     private final Location to; //Поле не может быть null
     private final double distance; //Поле не может быть null, Значение поля должно быть больше 1
+    private String ownername;
 
     public Route(Integer id, String name, Date creationDate, Location from, Location to, double distance)throws IOException {
         if(id ==null)throw new IOException("id can`t be null");
@@ -21,13 +22,13 @@ public class Route implements Comparable{
         if(name.strip().isEmpty())throw new IOException("name can`t be null");
         if(distance<0) throw new IOException("distance can't be negative");
 
-        this.id = -1;
+        this.id=id;
         this.name = name;
-        //this.coordinates = coordinates;
         this.creationDate = creationDate;
         this.from = from;
         this.to = to;
         this.distance = distance;
+        ownername = "unknown";
     }
 
     public Route(String name,Location from, Location to, double distance) throws IOException{
@@ -42,6 +43,7 @@ public class Route implements Comparable{
         this.to = to;
         this.distance = distance;
         this.creationDate=new Date();
+        ownername = "unknown";
     }
 
     @Override
@@ -54,6 +56,7 @@ public class Route implements Comparable{
                 ", from=" + from +
                 ", to=" + to +
                 ", distance=" + distance +
+                ", owner=" + ownername+
                 '}';
     }
 
@@ -94,5 +97,11 @@ public class Route implements Comparable{
         this.id=id;
     }
 
+    public void setOwnername(String ownername) {
+        this.ownername = ownername;
+    }
 
+    public String getOwnername() {
+        return ownername;
+    }
 }

@@ -4,6 +4,8 @@ import ru.ifmo.ServerManager;
 import ru.ifmo.coll.IRoutesHandler;
 import ru.ifmo.coll.Location;
 import ru.ifmo.coll.Route;
+import ru.ifmo.passwordmanager.PasswordManager;
+import ru.ifmo.transfer.Request;
 
 import java.io.IOException;
 
@@ -19,10 +21,15 @@ public class AddCommand implements Icommand{
     }
 
     @Override
-    public String execute(String command) {
-        ServerManager.getInstance().addCommandToHistory(command.split(" ")[0]);
+    public String execute(Request com) {
+        String command = com.getCommand();
         try {
-            return executor.add(parceCommand(command));
+            if(PasswordManager.getInstance().checkPassword(com.getUser(), com.getPassword())){
+                ServerManager.getInstance().addCommandToHistory(command.split(" ")[0]);
+                return executor.add(parceCommand(command), com.getUser());
+            }else{
+                return "ошибка доступа";
+            }
         } catch (IOException e) {
             return "ошибка при создании объекта";
         }

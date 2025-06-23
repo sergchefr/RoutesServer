@@ -16,17 +16,20 @@ public class DBcreator {
         }
     }
 
-    public void prepareBD(){
+    public void prepareBD(boolean readDB){
         boolean hasUsers = false;
         boolean hasRoutes = false;
 
         //безбожно дропает базу данных
-//        try {
-//            PreparedStatement statement = connection.prepareStatement("DROP TABLE routes; DROP TABLE users;");
-//            statement.execute();
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
+
+        if (!readDB) {
+            try {
+                PreparedStatement statement = getConnection().prepareStatement("DROP TABLE IF EXISTS users1, routes;");
+                statement.execute();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
         System.out.println("проверка существования БД...");
         try (PreparedStatement stmt = getConnection().prepareStatement(
@@ -34,34 +37,33 @@ public class DBcreator {
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 String tableName = rs.getString("table_name");
-                //System.out.println("Found table: " + tableName);
-                if (tableName.equals("users")) hasUsers = true;
+                if (tableName.equals("users1")) hasUsers = true;
                 if (tableName.equals("routes")) hasRoutes = true;
             }
 
-            if (hasUsers) System.out.println("таблица \"users\" найдена");
+            if (hasUsers) System.out.println("таблица \"users1\" найдена");
             else System.out.println("таблица \"users\" не найдена");
 
             if (hasRoutes) System.out.println("таблица \"routes\" найдена");
             else System.out.println("таблица \"routes\" не найдена");
 
 
-            if (hasUsers == false) {
+            if (!hasUsers) {
                 try{
                     PreparedStatement createusers = getConnection().prepareStatement(
-                            "CREATE TABLE users (" +
+                            "CREATE TABLE users1 (" +
                                     "    id SERIAL PRIMARY KEY," +
                                     "    username TEXT UNIQUE NOT NULL," +
                                     "    password_hash TEXT NOT NULL);");
 
                     createusers.execute();
-                    System.out.println("таблица \"users\" создана");
+                    System.out.println("таблица \"users1\" создана");
                 } catch (SQLException e) {
                     throw new RuntimeException(e.getMessage());
                 }
             }
 
-            if (hasRoutes == false) {
+            if (!hasRoutes) {
                 try {
                     PreparedStatement createRoutes = getConnection().prepareStatement(
                             "CREATE TABLE routes (" +
@@ -77,7 +79,7 @@ public class DBcreator {
                                     "   toz INTEGER NOT NULL," +
                                     "   creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP," +
                                     "   distance DOUBLE PRECISION CHECK (distance > 0) NOT NULL," +
-                                    "   owner_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE);");
+                                    "   owner_id INTEGER NOT NULL REFERENCES users1(id) ON DELETE CASCADE);");
 
                     createRoutes.execute();
                     System.out.println("таблица \"routes\" создана");

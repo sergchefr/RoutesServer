@@ -1,6 +1,8 @@
 package ru.ifmo.clientCommands;
 
 import ru.ifmo.ServerManager;
+import ru.ifmo.passwordmanager.PasswordManager;
+import ru.ifmo.transfer.Request;
 
 public class ShowHistoryCommand implements Icommand{
     private ServerManager executor;
@@ -10,7 +12,9 @@ public class ShowHistoryCommand implements Icommand{
     }
 
     @Override
-    public String execute(String command) {
+    public String execute(Request com) {
+        String command = com.getCommand();
+        if(!PasswordManager.getInstance().checkPassword(com.getUser(),com.getPassword())) return "ошибка доступа";
         executor.addCommandToHistory(command.split(" ")[0]);
         return executor.showHistory();
     }

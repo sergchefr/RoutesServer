@@ -301,5 +301,9 @@
         </parameter>
       </parameters>
     </command>
+    <command>
+      <name>get_groups</name>
+      <description>группирует все маршруты в связные графы по локациям, в них указанным</description>
+    </command>
   </commands>
 </data>

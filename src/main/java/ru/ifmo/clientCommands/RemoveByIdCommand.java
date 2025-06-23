@@ -2,6 +2,10 @@ package ru.ifmo.clientCommands;
 
 import ru.ifmo.ServerManager;
 import ru.ifmo.coll.IRoutesHandler;
+import ru.ifmo.passwordmanager.PasswordManager;
+import ru.ifmo.transfer.Request;
+
+import java.io.IOException;
 
 public class RemoveByIdCommand implements Icommand{
     private IRoutesHandler executor;
@@ -11,11 +15,17 @@ public class RemoveByIdCommand implements Icommand{
     }
 
     @Override
-    public String execute(String command) {
-        ServerManager.getInstance().addCommandToHistory(command.split(" ")[0]);
-        Integer id = parceCommand(command);
-        if(id==null) return "ошибка при выполнении команды";
-        return executor.removeById(id);
+    public String execute(Request com) {
+        String command = com.getCommand();
+
+        if (PasswordManager.getInstance().checkPassword(com.getUser(), com.getPassword())) {
+            ServerManager.getInstance().addCommandToHistory(command.split(" ")[0]);
+            Integer id = parceCommand(command);
+            if (id == null) return "ошибка при выполнении команды";
+            return executor.removeById(id, com.getUser());
+        } else {
+            return "ошибка доступа";
+        }
     }
 
     private Integer parceCommand(String command){

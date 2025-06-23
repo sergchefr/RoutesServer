@@ -1,12 +1,11 @@
 package ru.ifmo.SQLservices;
 
-import ru.ifmo.coll.DatabaseException;
-
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Base64;
 
 public class DatabaseUserManager{
-    private static DatabaseUserManager instance;
+    private volatile static DatabaseUserManager instance;
     private SQLconnectionManager connectionManager;
 
     private DatabaseUserManager() {
@@ -19,18 +18,20 @@ public class DatabaseUserManager{
 
     public void addUserToDatabase(String username, String passwordHashed) throws DatabaseException {
         try{
+            //System.out.println(passwordHashed);
             PreparedStatement statement = getConnection().prepareStatement(
-                    "INSERT INTO users (username, password_hash)" +
+                    "INSERT INTO users1 (username, password_hash)" +
                             "   VALUES(?, ?)");
             statement.setString(1,username);
             statement.setString(2,passwordHashed);
-
+            //System.out.println(statement);
             statement.executeUpdate();
-            ResultSet res = statement.getGeneratedKeys();
-            res.next();
         }catch (SQLIntegrityConstraintViolationException e){
             throw new DatabaseException(e.getMessage());
         }catch (SQLException e){
+            if (e.getSQLState().equals("23505")) throw new DatabaseException("Пользователь с таким именем уже существует.");
+                // 23505 = unique_violation
+            //System.out.println("первое исключение не поймалось... ватафак?");
             throw new RuntimeException(e);
         }
     }
@@ -38,7 +39,7 @@ public class DatabaseUserManager{
     public void deleteUser(String username) throws DatabaseException{
         try{
             PreparedStatement statement = getConnection().prepareStatement(
-                    "DELETE FROM users WHERE username = ?");
+                    "DELETE FROM users1 WHERE username = ?");
             statement.setString(1,username);
 
             if (statement.executeUpdate()==0) throw new DatabaseException("пользователя с таким именем не существует");
@@ -52,7 +53,7 @@ public class DatabaseUserManager{
         try{
             ArrayList<User> users= new ArrayList<>();
             PreparedStatement statement = getConnection().prepareStatement(
-                    "SELECT username, password_hash FROM users");
+                    "SELECT username, password_hash FROM users1");
 
             ResultSet res = statement.executeQuery();
             while (res.next()){
@@ -85,4 +86,5 @@ public class DatabaseUserManager{
         }
         return instance;
     }
+
 }

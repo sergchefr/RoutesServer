@@ -12,15 +12,16 @@ public class SQLconnectionManager {
     private final BlockingQueue<Connection> connectionPool;
 
     public SQLconnectionManager() throws SQLException {
-        //TODO это плохо.
         String url = "jdbc:postgresql://pg/studs";
-        String user = "s468005";
-        String password = "dwMa7WeQx03E5HC2";
+        String user = "";
+        String password = "";
 
         this.connectionPool = new ArrayBlockingQueue<>(POOL_SIZE);
 
         for (int i = 0; i < POOL_SIZE; i++) {
-            connectionPool.add(DriverManager.getConnection(url, user, password));
+            Connection connection = DriverManager.getConnection(url, user, password);
+            if(connection==null) throw new RuntimeException();
+            connectionPool.add(connection);
         }
     }
 
@@ -28,16 +29,13 @@ public class SQLconnectionManager {
         return connectionPool.take(); // блокирующий вызов, если соединений нет
     }
 
-    public void releaseConnection(Connection connection) throws SQLException {
-        if (connection != null && !connection.isClosed()) {
-            connectionPool.offer(connection);
+    public void releaseConnection(Connection connection){
+        try {
+            if (connection != null && !connection.isClosed()) {
+                connectionPool.offer(connection);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
-
-    public void shutdown() throws SQLException {
-        for (Connection connection : connectionPool) {
-            connection.close();
-        }
-    }
-
 }

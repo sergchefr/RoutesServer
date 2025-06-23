@@ -5,6 +5,8 @@ import ru.ifmo.ServerManager;
 import ru.ifmo.coll.IRoutesHandler;
 import ru.ifmo.coll.Location;
 import ru.ifmo.coll.Route;
+import ru.ifmo.passwordmanager.PasswordManager;
+import ru.ifmo.transfer.Request;
 
 import java.io.IOException;
 
@@ -16,14 +18,16 @@ public class UpdateCommand implements Icommand {
     }
 
     @Override
-    public String execute(String command) {
+    public String execute(Request com) {
+        String command = com.getCommand();
         ServerManager.getInstance().addCommandToHistory(command.split(" ")[0]);
         try {
+            if(!PasswordManager.getInstance().checkPassword(com.getUser(),com.getPassword())) return "ошибка доступа";
             Object[] args = parceCommand(command);
             Integer id = (Integer) args[0];
             Route route = (Route) args[1];
             if (id == null | route == null) return "ошибка при создании объекта";
-            return executor.update(id, route);
+            return executor.update(id, route, com.getUser());
         } catch (IOException e) {
             return "ошибка при создании объекта";
         }
