@@ -4,47 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d03ec477-5e5e-44d6-bd31-624d6d728fb5" name="Changes" comment="before refactoring commands and connectionmanager">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/IconnManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/MultithreadConnMannager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/GetindependentCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/graphs/GraphKnot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/graphs/GraphRoute.java" afterDir="false" />
+    <list default="true" id="d03ec477-5e5e-44d6-bd31-624d6d728fb5" name="Changes" comment="final push!">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ExportCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ImportCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/MigrateCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/Jsonreader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/Jsonwriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/Loader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/Saver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ConnectionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/DBcreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/DBcreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/MultithreadConnMannager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/MultithreadConnMannager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/DatabaseUserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/DatabaseUserManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/SQLconnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/SQLconnectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerCommands/ExitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerCommands/ExitCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerCommands/LoadCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerCommands/LoadCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerCommands/SaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerCommands/SaveCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddIfMaxCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddIfMaxCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddIfMinCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AddIfMinCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AvgDistanceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/AvgDistanceCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ClearCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/GetConfigCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/GetConfigCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/Icommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/Icommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/InfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/InfoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/PrintAscCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/PrintAscCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/PrintAscDistCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/PrintAscDistCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/GetindependentCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/GetindependentCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/RegisterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/RegisterCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/RemoveByIdCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/RemoveByIdCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ShowCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ShowCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ShowHistoryCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ShowHistoryCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/UpdateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/UpdateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/DatabaseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/DatabaseException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/IRoutesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/IRoutesHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/ProxyCacheArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/ProxyCacheArray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/TreeSetHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/TreeSetHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/history/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/history/History.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/passwordmanager/PasswordManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/passwordmanager/PasswordManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/xmlmanager/IllegalParamException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/IllegalParamException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/xmlmanager/XMLreader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/XMLreader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/xmlmanager/XMLwriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/XMLwriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ru/ifmo/ConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/ifmo/ConnectionManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ru/ifmo/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/ifmo/Main.class" afterDir="false" />
@@ -57,8 +41,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Exception" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -98,14 +82,10 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Сергей/IdeaProjects/RoutesClient&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Сергей/IdeaProjects/RoutesClient&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
-  <component name="QodanaReportsService">
-    <option name="descriptions">
-      <ReportDescription localRun="true" path="C:\Users\Сергей\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="2ee8fac5-777a-466a-bba6-18f1a04b697e" reportId="RoutesServer/qodana/2025-06-09" />
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ru.ifmo.Main" />
@@ -148,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749075401071</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="final push!">
+      <option name="closed" value="true" />
+      <created>1750713156994</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1750713156994</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,6 +153,83 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="broken?" />
     <MESSAGE value="before refactoring commands and connectionmanager" />
-    <option name="LAST_COMMIT_MESSAGE" value="before refactoring commands and connectionmanager" />
+    <MESSAGE value="final push!" />
+    <option name="LAST_COMMIT_MESSAGE" value="final push!" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

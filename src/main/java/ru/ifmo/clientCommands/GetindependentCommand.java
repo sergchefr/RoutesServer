@@ -88,8 +88,6 @@ public class GetindependentCommand implements Icommand{
         }
     }
 
-
-
     class Graph{
         private Set<Route> routes=new HashSet<>();
         private Set<Location> knots = new HashSet<>();

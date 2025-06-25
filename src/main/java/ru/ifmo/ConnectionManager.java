@@ -57,7 +57,6 @@ public class ConnectionManager implements IconnManager{
 
             SelectionKey key = (SelectionKey) keyIterator.next();
             if (key.isAcceptable()) {
-                //System.out.println("acceptable");
                 try {
                     chan = server.accept();
                     if (chan != null){

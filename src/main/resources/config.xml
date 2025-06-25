@@ -305,5 +305,66 @@
       <name>get_groups</name>
       <description>группирует все маршруты в связные графы по локациям, в них указанным</description>
     </command>
+    <command>
+      <name>import</name>
+      <description>добавляет в коллекцию пути из .xml или .json файлов</description>
+      <flags>
+        <flag>-c</flag>
+      </flags>
+      <parameters>
+        <parameter>
+          <name>filename</name>
+          <limitation>String</limitation>
+          <description>имя файла на сервере</description>
+        </parameter>
+      </parameters>
+    </command>
+    <command>
+      <name>migrate</name>
+      <description>изменяет формат файла</description>
+      <parameters>
+        <parameter>
+          <name>fromname</name>
+          <description>файл, из которого нужно переместить</description>
+          <limitation>String</limitation>
+        </parameter>
+        <parameter>
+          <name>toname</name>
+          <description>файл, куда нужно переместить</description>
+          <limitation>String</limitation>
+        </parameter>
+      </parameters>
+      <flags>
+        <flag>-c</flag>
+      </flags>
+    </command>
+    <command>
+      <name>export</name>
+      <description>экспортирует объекты в xml или json</description>
+      <flags>
+        <flag>-c</flag>
+      </flags>
+      <parameters>
+        <parameter>
+          <name>filename</name>
+          <description>имя файла</description>
+          <limitation>String</limitation>
+        </parameter>
+      </parameters>
+    </command>
+    <command>
+      <name>print_meta</name>
+      <description>выводит информацию о файле</description>
+      <flags>
+        <flag>-c</flag>
+      </flags>
+      <parameters>
+        <parameter>
+          <name>filename</name>
+          <description>имя файла</description>
+          <limitation>String</limitation>
+        </parameter>
+      </parameters>
+    </command>
   </commands>
 </data>

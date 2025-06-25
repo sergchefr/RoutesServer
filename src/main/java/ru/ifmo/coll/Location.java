@@ -1,5 +1,8 @@
 package ru.ifmo.coll;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 /** Класс, характеризующий некую локацию. используется в {@link Route}*/
@@ -9,7 +12,8 @@ public class Location {
     private final int z; //Поле не может быть null
     private final String name; //Строка не может быть пустой, Поле не может быть null
 
-    public Location(int x, int y, int z, String name) {
+    @JsonCreator
+    public Location(@JsonProperty("x") int x, @JsonProperty("y") int y, @JsonProperty("z") int z, @JsonProperty("name") String name) {
         if(Objects.equals(name,"")) throw new NumberFormatException();
         this.x = x;
         this.y = y;

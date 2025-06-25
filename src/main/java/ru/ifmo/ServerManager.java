@@ -6,7 +6,7 @@ import ru.ifmo.coll.TreeSetHandler;
 import ru.ifmo.history.History;
 import ru.ifmo.clientCommands.Icommand;
 import ru.ifmo.transfer.Request;
-import ru.ifmo.xmlmanager.*;
+import ru.ifmo.migration.*;
 
 import java.io.IOException;
 import java.nio.file.Files;

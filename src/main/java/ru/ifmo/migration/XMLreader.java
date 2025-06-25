@@ -1,4 +1,4 @@
-package ru.ifmo.xmlmanager;
+package ru.ifmo.migration;
 
 import ru.ifmo.coll.Location;
 import ru.ifmo.coll.Route;
@@ -10,6 +10,9 @@ import java.io.InputStreamReader;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -17,7 +20,7 @@ import java.util.*;
 /**
  * Класс, читающий XML и возвращающий объекты из них
  */
-public class XMLreader {
+public class XMLreader implements Loader {
     private String read(String filename) throws IOException {
         Path filepath;
         try {
@@ -53,6 +56,8 @@ public class XMLreader {
         Stack<String> cond = new Stack<>();
         HashMap<String, String> constr = new HashMap<>();
         ArrayList<Route> routes= new ArrayList<>();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
         for (String s : coms) {
             if(s.contains("/")) {
                 String a = cond.pop();
@@ -61,7 +66,7 @@ public class XMLreader {
                         routes.add(new Route(
                                 Integer.parseInt(constr.get("[<data>, <route>, <id>]")),
                                 constr.get("[<data>, <route>, <name>]"),
-                                dateParse(constr.get("[<data>, <route>, <creationDate>]")),
+                                simpleDateFormat.parse(constr.get("[<data>, <route>, <creationDate>]")),
                                 new Location(Integer.parseInt(constr.get("[<data>, <route>, <locationFrom>, <x>]")),
                                         Integer.parseInt(constr.get("[<data>, <route>, <locationFrom>, <y>]")),
                                         Integer.parseInt(constr.get("[<data>, <route>, <locationFrom>, <z>]")),
@@ -73,7 +78,7 @@ public class XMLreader {
                                 Float.parseFloat(constr.get("[<data>, <route>, <distance>]"))
                         ));
                     } catch (Exception e) {
-                        throw new IllegalParamException("wrong param");
+                        throw new IllegalParamException(e.getMessage());
                     }
                 }
             }
@@ -84,11 +89,11 @@ public class XMLreader {
         return routes;
     }
 
-    private Date dateParse(String str){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
-        ZonedDateTime zdt = ZonedDateTime.parse(str, formatter);
-        return Date.from(zdt.toInstant());
-    }
+//    private Date dateParse(String str){
+//        LocalDate date = LocalDate.parse(str);
+//        ZonedDateTime zdt = date.atStartOfDay(ZoneId.systemDefault());
+//        return Date.from(zdt.toInstant());
+//    }
 
 
 }

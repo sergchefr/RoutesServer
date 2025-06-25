@@ -22,7 +22,6 @@ public class PasswordManager {
         } catch (DatabaseException e) {
             throw new RuntimeException(e);
         }
-        //TODO nullcheck
         for (User user : usersDB) {
             users.put(user.getUsername(),user.getPasswordHashed());
             //System.out.println(user.getUsername()+"--->"+user.getPasswordHashed());
@@ -43,7 +42,6 @@ public class PasswordManager {
     }
 
     public String addUser(String username, String password){
-        //TODO добавить загрузку из бд новых паролей
         try {
             MessageDigest digester = MessageDigest.getInstance("SHA-512");
             byte[] input = password.getBytes();
@@ -63,8 +61,6 @@ public class PasswordManager {
 
     public boolean checkPassword(String username, String password){
         try {
-            //System.out.println(username+"-->"+password);
-
             if(username==null|password==null) return false;
             MessageDigest digester = MessageDigest.getInstance("SHA-512");
             byte[] input = password.getBytes();
@@ -73,8 +69,6 @@ public class PasswordManager {
             if(hashAsString==null) return false;
             String pswd = users.get(username);
             if(pswd==null) return false;
-            //System.out.println(pswd+'\n');
-            //System.out.println(new String(digest)+'\n');
             return pswd.equals(new String(hashAsString));
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);

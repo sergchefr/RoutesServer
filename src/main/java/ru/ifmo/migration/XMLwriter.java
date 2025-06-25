@@ -1,4 +1,4 @@
-package ru.ifmo.xmlmanager;
+package ru.ifmo.migration;
 
 import ru.ifmo.coll.Route;
 
@@ -7,21 +7,23 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 
 /** Класс, записывающий объекты в XML.
  *
  */
-public class XMLwriter {
+public class XMLwriter implements Saver {
 
     /** Принимает массив путей
      * @param routes массив путей
      * @param filename путь к файлу ли название сохранения
      * @throws IOException если не удается создать файл
      */
-    public void writeRoute(Route[] routes, String filename)throws IOException{
+    public void writeRoute(Route[] routes, String filename)throws IOException {
 
         filename=filename.replace("\\","/");
         Path filepath = Paths.get(filename);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try (PrintWriter writer = new PrintWriter(new FileWriter(filepath.toFile()))) {
             writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
@@ -30,7 +32,7 @@ public class XMLwriter {
                 writer.println("\t<route>");
                 writer.println("\t\t<id>" + route.getId() + "</id>");
                 writer.println("\t\t<name>" + route.getName() + "</name>");
-                writer.println("\t\t<creationDate>" + route.getCreationDate() + "</creationDate>");
+                writer.println("\t\t<creationDate>" + simpleDateFormat.format(route.getCreationDate()) + "</creationDate>");
                 writer.println("\t\t<locationFrom>");
                 writer.println("\t\t\t<name>" + route.getFromLocation().getName() + "</name>");
                 writer.println("\t\t\t<x>" + route.getFromLocation().getX() + "</x>");

@@ -42,14 +42,8 @@ public class MultithreadConnMannager implements IconnManager {
 
     public void checkNewCommands() {
         try {
-
-
             SocketChannel clientChannel = serverChannel.accept();
-            //System.out.println("Новое соединение от " + clientChannel.getRemoteAddress());
-
             new Thread(() -> handleClient(clientChannel)).start();
-
-
         } catch (IOException e) {
             System.err.println("Ошибка соединения: " + e.getMessage());
         }
@@ -60,24 +54,15 @@ public class MultithreadConnMannager implements IconnManager {
             InputStream inStream = Channels.newInputStream(clientChannel);
             ObjectInputStream in = new ObjectInputStream(inStream);
             Request request = (Request) in.readObject();
-            //System.out.println("Получена команда: " + request.getCommand());
-
-
             String responseText = commandManager.executeClient(request);
-
             Response response = new Response(responseText);
-
             responseSender.submit(() -> {
                 try {
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
                     ObjectOutputStream ous = new ObjectOutputStream(baos);
                     ous.writeObject(response);
                     ByteBuffer outbuf = ByteBuffer.wrap(baos.toByteArray());
-
                     clientChannel.write(outbuf);
-
-
-                    //System.out.println("Ответ отправлен клиенту");
                 } catch (IOException e) {
                     System.err.println("Ошибка при отправке ответа: " + e.getMessage());
                 }finally {

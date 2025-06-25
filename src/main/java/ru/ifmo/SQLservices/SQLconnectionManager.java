@@ -13,8 +13,8 @@ public class SQLconnectionManager {
 
     public SQLconnectionManager() throws SQLException {
         String url = "jdbc:postgresql://pg/studs";
-        String user = "";
-        String password = "";
+        String user = "s468005";
+        String password = "dwMa7WeQx03E5HC2";
 
         this.connectionPool = new ArrayBlockingQueue<>(POOL_SIZE);
 

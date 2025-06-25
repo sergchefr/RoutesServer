@@ -18,20 +18,16 @@ public class DatabaseUserManager{
 
     public void addUserToDatabase(String username, String passwordHashed) throws DatabaseException {
         try{
-            //System.out.println(passwordHashed);
             PreparedStatement statement = getConnection().prepareStatement(
                     "INSERT INTO users1 (username, password_hash)" +
                             "   VALUES(?, ?)");
             statement.setString(1,username);
             statement.setString(2,passwordHashed);
-            //System.out.println(statement);
             statement.executeUpdate();
         }catch (SQLIntegrityConstraintViolationException e){
             throw new DatabaseException(e.getMessage());
         }catch (SQLException e){
             if (e.getSQLState().equals("23505")) throw new DatabaseException("Пользователь с таким именем уже существует.");
-                // 23505 = unique_violation
-            //System.out.println("первое исключение не поймалось... ватафак?");
             throw new RuntimeException(e);
         }
     }
