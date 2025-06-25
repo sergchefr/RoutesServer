@@ -4,34 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d03ec477-5e5e-44d6-bd31-624d6d728fb5" name="Changes" comment="final push!">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ExportCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ImportCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/MigrateCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/Jsonreader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/Jsonwriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/Loader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/Saver.java" afterDir="false" />
+    <list default="true" id="d03ec477-5e5e-44d6-bd31-624d6d728fb5" name="Changes" comment="added some file operation features">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ConnectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/MultithreadConnMannager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/MultithreadConnMannager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/DatabaseUserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/DatabaseUserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/SQLconnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/SQLservices/SQLconnectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/ServerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/GetindependentCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/GetindependentCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/RegisterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/RegisterCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ImportCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/ImportCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/clientCommands/printMetaCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/coll/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/passwordmanager/PasswordManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/passwordmanager/PasswordManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/xmlmanager/IllegalParamException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/IllegalParamException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/xmlmanager/XMLreader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/XMLreader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/xmlmanager/XMLwriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/XMLwriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/ifmo/ConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/ifmo/ConnectionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/ifmo/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/ifmo/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/XMLreader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/XMLreader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/XMLwriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/ifmo/migration/XMLwriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750713156994</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added some file operation features">
+      <option name="closed" value="true" />
+      <created>1750878910825</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1750878910825</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,7 +141,8 @@
     <MESSAGE value="broken?" />
     <MESSAGE value="before refactoring commands and connectionmanager" />
     <MESSAGE value="final push!" />
-    <option name="LAST_COMMIT_MESSAGE" value="final push!" />
+    <MESSAGE value="added some file operation features" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some file operation features" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

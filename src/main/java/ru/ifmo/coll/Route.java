@@ -114,6 +114,7 @@ public class Route implements Comparable{
         this.id=id;
     }
 
+    @JsonProperty("ownername")
     public void setOwnername(String ownername) {
         this.ownername = ownername;
     }

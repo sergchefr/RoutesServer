@@ -42,7 +42,7 @@ public class ImportCommand implements Icommand {
                     return "расширение "+filename.split("\\.")[1]+" не поддерживается";
                 }
                 for (Route route : routes) {
-                    collection.add(route, com.getUser());
+                    collection.add(route, route.getOwnername());
                 }
                 return "элементы добавлены в коллекцию";
             }else{
@@ -53,7 +53,7 @@ public class ImportCommand implements Icommand {
         }catch (IllegalParamException e){
             return "неверные параметры";
         } catch (Exception e) {
-            return "ошибка загрузки файла";
+            return "ошибка загрузки файла "+e.getMessage();
         }
     }
 

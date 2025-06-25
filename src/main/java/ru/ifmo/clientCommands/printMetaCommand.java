@@ -95,7 +95,7 @@ public class printMetaCommand implements Icommand{
             sb.append("  - Диапазон ID: ").append(minid).append("-").append(maxid).append("\n");
             sb.append("пользователи:\n");
             for (String s : userData.keySet()) {
-                sb.append(s).append(": ").append(userData.get(s));
+                sb.append(s).append(": ").append(userData.get(s)).append("\n");
             }
 
 

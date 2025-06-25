@@ -63,7 +63,7 @@ public class XMLreader implements Loader {
                 String a = cond.pop();
                 if (a.equals("<route>")){
                     try {
-                        routes.add(new Route(
+                        Route route = new Route(
                                 Integer.parseInt(constr.get("[<data>, <route>, <id>]")),
                                 constr.get("[<data>, <route>, <name>]"),
                                 simpleDateFormat.parse(constr.get("[<data>, <route>, <creationDate>]")),
@@ -75,8 +75,9 @@ public class XMLreader implements Loader {
                                         Integer.parseInt(constr.get("[<data>, <route>, <locationTo>, <y>]")),
                                         Integer.parseInt(constr.get("[<data>, <route>, <locationTo>, <z>]")),
                                         constr.get("[<data>, <route>, <locationTo>, <name>]")),
-                                Float.parseFloat(constr.get("[<data>, <route>, <distance>]"))
-                        ));
+                                Float.parseFloat(constr.get("[<data>, <route>, <distance>]")));
+                        route.setOwnername(constr.get("[<data>, <route>, <ownername>]"));
+                        routes.add(route);
                     } catch (Exception e) {
                         throw new IllegalParamException(e.getMessage());
                     }
@@ -85,7 +86,6 @@ public class XMLreader implements Loader {
             else if(s.contains("<")) cond.add(s);
             else constr.put(cond.toString(),s);
         }
-        //System.out.println(constr);
         return routes;
     }
 

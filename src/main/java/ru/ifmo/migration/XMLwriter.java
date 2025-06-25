@@ -46,6 +46,7 @@ public class XMLwriter implements Saver {
                 writer.println("\t\t\t<z>" + route.getToLocation().getZ() + "</z>");
                 writer.println("\t\t</locationTo>");
                 writer.println("\t\t<distance>" + route.getDistance() + "</distance>");
+                writer.println("\t\t<ownername>"+route.getOwnername()+"</ownername>");
                 writer.println("\t</route>");
             }
             writer.println("</data>");
